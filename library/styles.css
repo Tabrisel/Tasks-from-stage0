@@ -1,0 +1,124 @@
+/* Inter regular */
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/inter-v12-latin-regular.woff2");
+}
+
+/* Inter bold */
+
+@font-face {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 700;
+    src: url("fonts/inter-v12-latin-700.woff2");
+}
+
+/* Forum regular */
+
+@font-face {
+    font-family: "Forum";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/forum-v16-latin-regular.woff2")
+}
+
+/*settings for all */
+
+html {
+    box-sizing: border-box;
+}
+
+.box {
+    width: 1440px;
+    margin: auto;
+}
+
+body {
+    font-family: Inter;
+}
+ p {
+    font-family: Inter;
+    font-size: 20px;
+    color: #FFFFFF;
+ }
+
+ h1 {
+    font-family: Forum;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 30px;
+    line-height: 50px;
+    letter-spacing: 0.02em;
+ }
+
+ h2 {
+    font-family: Forum;
+    font-size: 40px;
+    color: black;
+ }
+
+/* header */
+
+header {
+    width: 1440px;
+    height: 90px;
+    background-color: black;
+}
+
+.header_box {
+    width: 1440px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.BPL {
+    width: 294px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.list {
+    font-family: Inter;
+    width: 584px;
+    height: 50px;
+    display:flex;
+    gap: 30px;
+    justify-content: space-between;
+    font-size: 20px;
+    line-height: 50px;
+}
+
+.menu {
+    margin-left: 454px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.item {
+    text-decoration: none;
+    color: white;
+    display: inline;
+}
+
+.line {
+    display: inline;
+    height: 50px;
+}
+
+.icon {
+    width: 28px;
+    height: 28px;
+    background-image: url("svg/icon_profile.svg");
+    margin-left: 40px;
+    margin-right: 20px;
+    margin-top: 31px;
+    margin-bottom:31px;
+}
+
