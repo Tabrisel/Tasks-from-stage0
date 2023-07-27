@@ -57,7 +57,7 @@ body {
  h2 {
     font-family: Forum;
     font-size: 40px;
-    color: black;
+    color: #FFFFFF;
  }
 
 /* header */
@@ -122,3 +122,49 @@ header {
     margin-bottom:31px;
 }
 
+section {
+    text-align: center;
+}
+
+/* main */
+/* welcome */
+
+.welcome_block {
+    width: 1440px;
+    height: 600px;
+    top: 90px;
+    background-image: url("images/welcome_bg.jpg");
+}
+
+.gradient {
+    position: absolute;
+    width: 1440px;
+    height: 300px;
+    background: linear-gradient(rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 90%);
+}
+
+.welcome_text {
+    text-align: center;
+    position: absolute;
+    width: 600px;
+    height: 220px;
+    margin-top: 220px;
+    margin-bottom: 160px;
+    margin-right: 840px;
+    background-color:#0C0C0E;
+}
+
+.w_t {
+    margin-top: 35px;
+    margin-bottom: 35px;
+    margin-left: 40px;
+    margin-right: 40px;
+    width: 520px;
+    height: 150px;
+    font-family: Forum;
+    font-size: 40px;
+    line-height: 50px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+}
