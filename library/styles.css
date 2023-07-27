@@ -31,7 +31,7 @@ html {
     box-sizing: border-box;
 }
 
-.box {
+.wrapper {
     width: 1440px;
     margin: auto;
 }
@@ -42,7 +42,7 @@ body {
  p {
     font-family: Inter;
     font-size: 20px;
-    color: #FFFFFF;
+    color: #000000;
  }
 
  h1 {
@@ -57,7 +57,13 @@ body {
  h2 {
     font-family: Forum;
     font-size: 40px;
-    color: #FFFFFF;
+    color:#0C0C0E;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-align: left;
+    height: 100%;
+    width: 100%;
  }
 
 /* header */
@@ -167,4 +173,126 @@ section {
     letter-spacing: 3px;
     text-transform: uppercase;
     color: #FFFFFF;
+}
+
+/* About */
+
+.about_block {
+    width: 1440px;
+    height: 837px;
+    margin-top: 0px;
+    background-color: #FFFFFF;
+}
+
+.about_textbox {
+    width: 106px;
+    height: 61px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 667px;
+    margin-right: 667px;
+}
+h2::after
+{
+  content: '';
+  border-bottom: 1px solid #0C0C0E;
+  width: 50px;
+  display: block;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.free_workpl {
+    width: 1440px;
+    height: 40px;
+    margin-top: 40px;
+    font-family: Inter;
+    line-height: 40px;
+    letter-spacing: 0em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.images_items {
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    width: 1400px;
+    height: 560px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+
+.carousel_pagination {
+    width: 68px;
+    height: 16px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 686px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.square {
+    height: 26px;
+    width: 26px;
+}
+
+.sp_circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 50px;
+    background-color: #BB945F;
+
+}
+
+.circle {
+    height: 16px;
+    width: 16px;
+    border-radius: 50px;
+    background-color: #0C0C0E;
+}
+.favor {
+    position: absolute;
+    width: 1440px;
+    height: 1439px;
+    top: 1527px;
+    background-color: #FFFFFF;
+}
+
+.coffee {
+    position: absolute;
+    width: 1440px;
+    height: 841px;
+    top: 2966px;
+    padding: 20px 20px 40px 20px;    
+    background-color: #FFFFFF;
+}
+
+.contacts {
+    position: absolute;
+    width: 1440px;
+    height: 575px;
+    top: 3807px;
+    padding: 20px 20px 40px 20px;   
+    background: #FFFFFF; 
+}
+
+.card {
+    position: absolute;
+    width: 1440px;
+    height: 614px;
+    top: 4382px;
+    background: #FFFFFF; 
+}
+
+footer {
+    position: absolute;
+    width: 1440px;
+    height: 250px;
+    top: 4996px;
+    background: #0C0C0E;
 }
