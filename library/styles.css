@@ -780,9 +780,12 @@ h2::after
 }
 
 .check_card:hover {
-    border:none;
+    width: 242px;
+    border: 1px solid transparent;
     background-color: rgba(187, 148, 95, 1);
     cursor: pointer;
+    padding: 10px 40px 10px 40px;
+    letter-spacing: 1px;
 }
 
 input {
