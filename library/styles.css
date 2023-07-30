@@ -257,10 +257,12 @@ h2::after
 .square {
     height: 26px;
     width: 26px;
+    transition: .5s;
 }
 
 .square:hover {
     cursor: pointer;
+    opacity: 20%;
 }
 .sp_circle {
     height: 16px;
@@ -279,19 +281,386 @@ h2::after
 
 /* favorites block */
 
-.favor {
+.favor_block {
     width: 1440px;
     height: 1439px;
     background-color: #FFFFFF;
+    position: relative;
 }
 .favor_text {
     width: 160px;
     height: 61px;
     margin-left: 640px;
     margin-right: 640px;
-    margin-bottom: 1358px;
     line-height: 100%;
     white-space: nowrap;
+}
+
+.pick_favor {
+    width: 234px;
+    height: 24px;
+    margin-left: 20px;
+    margin-top: 40px;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.winter {
+    position: absolute;
+    width: 104px;
+    height: 24px;
+    top: 165px;
+    left: 20px;
+}
+
+input[type=radio] {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}
+
+input[type="radio"]:checked+span {   
+    font-weight: 700;
+}
+
+
+.wint_text {
+    width: 114px;
+    height: 35px;
+
+
+    position: absolute;
+    left: 0px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0em;
+    margin-left: 37px;
+
+}
+
+.custom_radio {
+    position: relative;
+    display: inline-block;
+    width: 17px;
+    height: 17px;
+    box-sizing: border-box;
+    background: white;
+    border: 2px solid black;
+    border-radius: 50%;
+    top: 5px;
+    right: 6px;
+    left: 0;
+}
+
+.custom_radio::before {
+    content: "";
+
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%; 
+    background: rgba(0, 0, 0, 1);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    display: none;
+}
+
+.real_radio {
+    width: 0;
+    height: 0;
+    position: absolute;
+    opacity: 0;
+    z-index: -1; 
+}
+
+.real_radio:checked + .custom_radio::before {
+    display: block;
+}
+
+label {
+    cursor: pointer;
+}
+
+.spring {
+    position: absolute;
+    width: 99px;
+    height: 24px;
+    left: 214px;
+    top: 165px;
+}
+
+.spr_text {
+    position: absolute;
+
+    width: 109px;
+    height: 35px;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0em;
+    margin-left: 37px;
+}
+
+.summer {
+    position: absolute;
+    width: 116px;
+    height: 24px;
+    top: 165px;
+    left: 403px;
+}
+
+.sum_text {
+    position: absolute;
+
+    width: 126px;
+    height: 35px;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0em;
+    margin-left: 37px;
+}
+        
+
+.autumn {
+    position: absolute;
+    width: 111px;
+    height: 24px;
+    top: 165px;
+    left: 609px;
+}
+
+.aut_text {
+    position: absolute;
+
+    width: 121px;
+    height: 35px;
+
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    font-family: Inter;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: 0em;
+    margin-left: 37px;
+}
+
+.favor_items {
+    width: 1400px;
+    height: 1150px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 104px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.block_for_book {
+    width: 590px;
+    height: 553px;
+    flex-wrap: wrap;
+}
+
+.break {
+    flex-basis: 100%;
+    height: 38px;
+  }
+
+.block_for_board {
+    width: 549px;
+    height: 553px;
+    border: 1px solid #000000;
+    position: relative;
+}
+
+.staff_picks {
+    width: 102px;
+    height: 38px;
+    margin-left: 19px;
+    margin-top: 14px;
+    font-family: Forum;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-align: left;
+    color: #000000;
+}
+
+.staff_picks:after {
+  content: '';
+  border: 1px solid #BB945F;
+  width: 60px;
+  display: block;
+}
+
+.author_headline {
+    height: 80px;
+    margin-left: 19px;
+    margin-top: 22px;
+}
+
+.title_f {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-align: left;
+    text-transform: capitalize;
+}
+
+.upper_title {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.about_b {
+    width: 355px;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-align: left;
+    color: rgba(0, 0, 0, 1);
+    margin-left: 19px;
+    margin-top: 20px;
+    text-transform: capitalize;
+}
+
+.about_b_sp {
+    width: 355px;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 40px;
+    letter-spacing: 2px;
+    text-align: left;
+    color: rgba(0, 0, 0, 1);
+    margin-left: 19px;
+    margin-top: 20px;
+    text-transform: capitalize;
+    white-space:nowrap;
+}
+
+.buy {
+    width: 75px;
+    height: 30px;
+    position: absolute;
+    bottom: 14px;
+    left: 19px;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12.1px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: rgba(12, 12, 14, 1);
+    background-color: transparent;
+    border: 1px solid rgba(12, 12, 14, 1);
+    border-radius: 2px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 26px;
+    padding-right: 26px;
+    transition: background-color 1s;
+}
+
+.buy:hover {
+    border: 1px solid transparent;
+    background-color: rgba(187, 148, 95, 1);
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+.own {
+    width: 75px;
+    height: 30px;
+    position: absolute;
+    bottom: 14px;
+    left: 19px;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12.1px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: rgba(187, 148, 95, 1);
+
+    background-color: transparent;
+    border: 1px solid rgba(187, 148, 95, 1);
+    border-radius: 2px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 26px;
+    padding-right: 26px;
+}
+
+.image_book_1 {
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/winter/eaters.jpg");
+}
+
+.image_book_2 {
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/winter/cackle.jpg");
+}
+
+.image_book_3 {
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/winter/dante.jpg");
+}
+
+.image_book_4 {
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/winter/last_queen.jpg");
 }
 
 /* coffee shop block */
@@ -815,6 +1184,24 @@ input {
     font-weight: 400;
     line-height: 50px;
     letter-spacing: 0.02em;
+}
+
+.input[type="text"] {
+    color: #565656;
+    font-family: Forum;
+    font-size: 30px;
+    font-weight: 400;
+    line-height: 50px;
+    letter-spacing: 0.02em;
+}
+
+.input[type="number"] {
+        color: #565656;
+        font-family: Forum;
+        font-size: 30px;
+        font-weight: 400;
+        line-height: 50px;
+        letter-spacing: 0.02em;
 }
 
 .get_a_card {

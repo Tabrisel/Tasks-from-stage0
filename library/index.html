@@ -34,7 +34,7 @@
         <div class="gradient"></div>
         <div class="welcome_block">
             <div class="welcome_text">
-                <p class="w_t">Welcome&nbsp; <br> to the Brooklyn <br> Library</p>
+                <section class="w_t">Welcome&nbsp; <br> to the Brooklyn <br> Library</section>
             </div>
             </div>
         <div class= "about_block">
@@ -46,13 +46,104 @@
                 <img src="images/image 3.jpg" alt="shelves with books" width="450" height="560">
             </div>
             <div class="carousel_pagination">
-                <div class="square"><button class="sp_circle"></button></div>
-                <div class="square"><button class="circle"></button></div>
-                <div class="square"><button class="circle"></button></div>
+                <div class="square"><button class="sp_circle" type="button"></button></div>
+                <div class="square"><button class="circle" type="button"></button></div>
+                <div class="square"><button class="circle" type="button"></button></div>
             </div>
         </div>
-        <div class= "favor">
+        <div class= "favor_block">
             <section id="favor" class="favor_text"><h2>Favorites</h2></section>
+            <p class="pick_favor">Pick favorites of season</p>
+            
+
+            <div class="winter">
+                <span class="custom_radio"></span>
+                <label for="wint" class="wint_text">
+                    <input type="radio" class="real_radio" id="wint" name="seasons"><span>Winter</span>
+                </label>
+            </div>
+
+            <div class="spring">
+                <span class="custom_radio"></span>
+                <label  for="spr">
+                    <input type="radio" class="real_radio" id="spr" name="seasons"><span class="spr_text">Spring</span>
+                </label>
+            </div>
+
+            <div class="summer">
+
+                <span class="custom_radio"></span>
+                <label for="sum">
+                    <input type="radio" class="real_radio" id="sum" name="seasons"><span class="sum_text">Summer</p>
+                </label>
+            </div>
+
+            <div class="autumn">
+                <span class="custom_radio"></span>
+                <label for="aut">
+                    <input type="radio" class="real_radio" id="aut" name="seasons"><span class="aut_text">Autumn</p>
+                </label>
+            </div>
+
+
+            <div class="favor_items">
+                <div class="block_for_book">
+                    <div class="block_for_board">
+                        <p class="staff_picks">Staff&nbsp;Picks&nbsp;</p>
+                        <div class="author_headline">
+                            <p class="upper_title">The&nbsp;Book&nbsp;Eaters</p>
+                            <p class="title_f">By&nbsp;Sunyi&nbsp;Dean</p>
+                        </div>
+                        <p class="about_b">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+                        <button class="buy" type="button">Buy</button>
+                        <div class="image_book_1"></div>
+                    </div>
+
+                </div>
+                <div class="block_for_book">
+                    <div class="block_for_board">
+                        <p class="staff_picks">Staff&nbsp;Picks&nbsp;</p>
+                        <div class="author_headline">
+                            <p class="upper_title">Cackle</p>
+                            <p class="title_f">By&nbsp;Rachel&nbsp;Harrison&nbsp;</p>
+                        </div>
+                        <p class="about_b">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
+                        <button class="buy" type="button">Buy</button>
+                        <div class="image_book_2"></div>
+                    </div>
+                </div>
+
+
+                <div class="break"></div>
+
+
+                <div class="block_for_book">
+                    <div class="block_for_board">
+                        <p class="staff_picks">Staff&nbsp;Picks&nbsp;</p>
+                        <div class="author_headline">
+                            <p class="upper_title">Dante:&nbsp;Poet&nbsp;of&nbsp;the&nbsp;Secular&nbsp;World</p>
+                            <p class=title_f>By&nbsp;Erich&nbsp;Auerbach</p>
+                        </div>
+                        <p class="about_b_sp">Auerbach's engaging book places the<br>'Comedy' within the tradition of epic,<br>tragedy, and philosophy in general,<br>arguing for Dante's uniqueness as one<br>who raised the individual and his<br>drama of soul into something of<br>divine significance—an inspired<br>introduction to Dante's main themes.</p>
+                        <button class="buy" type="button">Buy</button>
+                        <div class="image_book_3"></div>
+                    </div>
+                </div>
+
+                <div class="block_for_book">
+                    <div class="block_for_board">
+                        <p class="staff_picks">Staff&nbsp;Picks&nbsp;</p>
+                        <div class="author_headline">
+                            <p class="upper_title">The&nbsp;Last&nbsp;Queen&nbsp;</p>
+                            <p class="title_f">By&nbsp;Clive&nbsp;Irving&nbsp;</p>
+                        </div>
+                        <p class="about_b">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
+                        <button disabled class="own" type="button">Own</button>
+                        <div class="image_book_4"></div>
+                    </div>
+                </div>
+
+            </div>
         </div>
         <div class= "coffee_block">
             <section id="coffee" class="coffee_text"><h2>Coffee Shop</h2></section>
@@ -235,17 +326,21 @@
                     <div class="form_library">
                     <div class="beige_box">
                         <p class="br_p_l">Brooklyn Public Library</p>
+                        <label class="card">
                         <input class="input" type="text" placeholder="Reader's name">
-                        <input class="input" type="card_number" placeholder="Card number">
+                        </label>
+                        <label class="card">
+                        <input class="input" type="number" placeholder="Card number">
+                        </label>
                         </div>
-                        <button class="check_card">Check&nbsp;the&nbsp;card&nbsp;</button>
+                        <button class="check_card" type="button">Check&nbsp;the&nbsp;card&nbsp;</button>
                     </div>
                     </div>
 
                 <div class="get_a_card">
                     <div class="get_c"><p class="get_arc">Get a reader card</p></div>
                     <div class="you_will_be_able"><p class="ywba">You will be able to see a reader card after logging into account or you can register a new account</p></div>
-                    <div class="two_buttons"><button class="for_sign_log">Sign Up</button><button class="for_sign_log">Log In</button></div>
+                    <div class="two_buttons"><button class="for_sign_log" type="button">Sign Up</button><button class="for_sign_log" type="button">Log In</button></div>
                 </div>
             </div>
         </div>
@@ -259,11 +354,11 @@
                     <p class="Mon_Fr">Mon - Fri<br> 08:00 am - 07:00 pm</p>
                 </div>
                 <div class="frame_4">
-                    <div class="social_media">
-                        <a class="twitter" href="https://twitter.com/rollingscopes"></a>
-                        <a class="instagram" href="https://www.instagram.com/explore/tags/rollingscopes/"></a>
-                        <a class="facebook" href="https://www.facebook.com/groups/TheRollingScopes/"></a>
-                    </div>
+                    <ul class="social_media">
+                        <li class="twitter"><a class="twitter" href="https://twitter.com/rollingscopes"></a></li>
+                        <li class="instagram"><a class="instagram" href="https://www.instagram.com/explore/tags/rollingscopes/"></a></li>
+                        <li class="facebook"><a class="facebook" href="https://www.facebook.com/groups/TheRollingScopes/"></a></li>
+                    </ul>
                     <p class="Sat_Sun">Sat - Sun<br> 10:00 am - 06:00 pm</p>
                 </div>
             </div>
