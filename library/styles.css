@@ -254,23 +254,27 @@ h2::after {
     height: 560px;
     margin-left: 20px;
     margin-right: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
 }
 
 .carousel_pagination {
-    width: 68px;
     height: 16px;
-    margin-top: 40px;
-    margin-left: 686px;
+    margin-left: 681px;
     display: flex;
-    justify-content: space-between;
-    gap: 10px;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .square {
+    box-sizing: border-box;
     height: 26px;
     width: 26px;
     transition: .5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 .square:hover {
@@ -283,6 +287,9 @@ h2::after {
     width: 16px;
     border-radius: 50px;
     background-color: #BB945F;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
 
 }
 
@@ -291,6 +298,7 @@ h2::after {
     width: 16px;
     border-radius: 50px;
     background-color: #0C0C0E;
+    padding: 0px;
 }
 
 /* favorites block */
@@ -540,15 +548,16 @@ label {
 
 .staff_picks:after {
     content: '';
-    border: 1px solid #BB945F;
+    border-bottom: 1px solid #BB945F;
     width: 60px;
+    height: 0.2px;
     display: block;
 }
 
 .author_headline {
     height: 80px;
     margin-left: 19px;
-    margin-top: 22px;
+    margin-top: 23px;
 }
 
 .title_f {
@@ -662,6 +671,39 @@ label {
     background-image: url("images/favor/winter/eaters.jpg");
 }
 
+.image_book_1_spr {
+    display: none;
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/spring/book_spr.jpg");
+    z-index: 1;
+}
+
+.image_book_1_sum {
+    display: none;
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/summer/book_sum.jpg");
+    z-index: 1;
+}
+
+.image_book_1_aut {
+    position: absolute;
+    display: none;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/autumn/book_autumn1.jpg");
+    z-index: 1;
+}
+
 .image_book_2 {
     position: absolute;
     bottom: -1px;
@@ -669,6 +711,40 @@ label {
     width: 200px;
     height: 300px;
     background-image: url("images/favor/winter/cackle.jpg");
+}
+
+.image_book_2_spr {
+    display: none;
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/spring/book1_spr.jpg");
+    z-index: 1;
+}
+
+
+.image_book_2_sum {
+    position: absolute;
+    display: none;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/summer/book1_sum.jpg");
+    z-index: 1;
+}
+
+.image_book_2_aut {
+    position: absolute;
+    display: none;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/autumn/book_autumn2.jpg");
+    z-index: 1;
 }
 
 .image_book_3 {
@@ -680,6 +756,39 @@ label {
     background-image: url("images/favor/winter/dante.jpg");
 }
 
+.image_book_3_spr {
+    display: none;
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/spring/book2_spr.jpg");
+    z-index: 1;
+}
+
+.image_book_3_sum {
+    display: none;
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/summer//book2_sum.jpg");
+    z-index: 1;
+}
+
+.image_book_3_aut {
+    position: absolute;
+    display: none;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/autumn/book_autumn4.jpg");
+    z-index: 1;
+}
+
 .image_book_4 {
     position: absolute;
     bottom: -1px;
@@ -688,6 +797,40 @@ label {
     height: 300px;
     background-image: url("images/favor/winter/last_queen.jpg");
 }
+
+.image_book_4_spr {
+    display: none;
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/spring/book3_spr.jpg");
+    z-index: 1;
+}
+
+.image_book_4_sum {
+    display: none;
+    position: absolute;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/summer/book3_sum.jpg");
+    z-index: 1;
+}
+
+.image_book_4_aut {
+    position: absolute;
+    display: none;
+    bottom: -1px;
+    right: -40px;
+    width: 200px;
+    height: 300px;
+    background-image: url("images/favor/autumn/book_autumn3.jpg");
+    z-index: 1;
+}
+
 
 /* coffee shop block */
 
