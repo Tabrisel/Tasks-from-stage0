@@ -1511,19 +1511,21 @@ footer {
 .twitter {
     width: 24px;
     height: 24px;
-    background: url("svg/u_twitter-alt.svg");
+    color: black;
+    transition: 1s;
 }
 
 .twitter:hover {
     cursor: pointer;
     background-size: 24px;
     opacity: 50%;
+    text-decoration: none;
 }
 
 .instagram {
     width: 24px;
+    color: black;
     height: 24px;
-    background: url("svg/u_instagram.svg");
     transition: 1s;
 }
 
@@ -1531,18 +1533,21 @@ footer {
     cursor: pointer;
     background-size: 24px;
     opacity: 50%;
+    text-decoration: none;
 }
 
 .facebook {
     width: 24px;
     height: 24px;
-    background: url("svg/u_facebook-f.svg");
+    color: black;
+    transition: 1s;
 }
 
 .facebook:hover {
     cursor: pointer;
     background-size: 24px;
     opacity: 50%;
+    text-decoration: none;
 }
 
 .Sat_Sun {
