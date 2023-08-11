@@ -1688,7 +1688,7 @@ footer {
         width: 100%;
         height: 90px;
         display: flex;
-        justify-content:left;
+        justify-content: left;
         gap: 0px;
     }
 
@@ -1720,8 +1720,8 @@ footer {
         margin-top: 20px;
         margin-bottom: 20px;
         margin-left: auto;
-        
-        
+
+
     }
 
     .item {
@@ -1745,7 +1745,7 @@ footer {
         margin-bottom: 31px;
         position: relative;
     }
-    
+
 
     section {
         text-align: center;
@@ -1859,17 +1859,17 @@ footer {
         margin-bottom: 35px;
     }
 
-    .girl_pic img{
+    .girl_pic img {
         max-width: 100%;
         max-height: 100%;
     }
 
-    .pic_busts img{
+    .pic_busts img {
         max-width: 100%;
         max-height: 100%;
     }
 
-    .pic_books img{
+    .pic_books img {
         max-width: 100%;
         max-height: 100%;
     }
@@ -3263,7 +3263,7 @@ footer {
         width: 100%;
         height: 22px;
         margin-left: auto;
-        margin-right:0px; 
+        margin-right: 0px;
         margin-bottom: 44px;
     }
 
@@ -3313,6 +3313,10 @@ footer {
 }
 
 @media screen and (max-width: 1024px) {
+
+    .header_box {
+        z-index: 8;
+    }
     .burger {
         display: flex;
         flex-direction: column;
@@ -3320,7 +3324,7 @@ footer {
         position: absolute;
         width: 45px;
         height: 20px;
-        z-index: 11;
+        z-index: 9;
         top: 33px;
         right: 20px;
     }
@@ -3357,7 +3361,14 @@ footer {
         margin-left: auto;
         margin-top: 0;
         margin-bottom: 0;
-        display: none;
+        margin-right: 0;
+        display: block;
+        transform: translateX(100%);
+        transition: .4s all linear;
+    }
+
+    .menu_ON {
+        transform: translateX(0);
     }
 
     .list {
@@ -3402,12 +3413,14 @@ footer {
     }
 
     .cross {
+        display: flex;
+        justify-content: center;
         width: 32px;
         height: 32px;
         position: absolute;
         z-index: 11;
-        top: 31px;
-        left: 274px;
+        top: 30px;
+        left: 275px;
         right: 20px;
     }
 
@@ -3435,11 +3448,13 @@ footer {
         padding-left: 0px;
         padding-right: 0px;
     }
+
     .welcome_block {
         background-size: 1024px 600px;
     }
+
     .gradient {
-        z-index: 11;
+        z-index: 9;
     }
 }
 
@@ -3453,6 +3468,7 @@ footer {
         background-image: url("images/bg_tablet.jpg");
         background-size: 768px 600px;
     }
+
     .welcome_text {
         width: 600px;
         height: 220px;
@@ -3466,6 +3482,7 @@ footer {
     .pic_busts {
         display: none;
     }
+
     .pic_books {
         display: none;
     }
@@ -3474,6 +3491,7 @@ footer {
         margin-left: auto;
         margin-right: auto;
     }
+
     .images_items {
         width: 614px;
         height: ;
@@ -3549,7 +3567,7 @@ footer {
         cursor: pointer;
         opacity: 20%;
     }
-    
+
     .favor_items {
         gap: 42px;
         margin-bottom: 62px;
@@ -3574,11 +3592,13 @@ footer {
         margin-left: 0px;
         margin-bottom: 0px;
     }
-    .deserts_and_cakes{
+
+    .deserts_and_cakes {
         margin-right: 0px;
         margin-top: 40px;
     }
-    .desserts_headline{
+
+    .desserts_headline {
         width: 317px;
         height: 40px;
         font-family: Forum;
@@ -3588,6 +3608,7 @@ footer {
         letter-spacing: 2px;
         text-align: left;
     }
+
     .contacts_block {
         box-sizing: border-box;
         padding-left: 1px;
@@ -3597,9 +3618,11 @@ footer {
         height: auto;
         margin-bottom: 40px;
     }
+
     .card_text {
         width: 370px;
     }
+
     .find_card {
         margin-left: 0px;
     }
@@ -3607,6 +3630,7 @@ footer {
     .frame_4 {
         margin-top: 8px;
     }
+
     .frame_6 {
         margin-top: -1px;
     }
