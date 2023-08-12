@@ -18,21 +18,29 @@
         <header>
             <div class="header_box">
                 <div class="BPL">
-                    <h1>Brooklyn Public Library</h1>
+                    <h1>Brooklyn&nbsp;Public&nbsp;Library</h1>
                 </div>
                 <nav class="menu">
                     <ul class="list">
                         <li class="line"><a class="item" href="#about">About</a></li>
                         <li class="line"><a class="item" href="#favor">Favorites</a></li>
-                        <li class="line"><a class="item" href="#coffee">Coffee shop</a></li>
+                        <li class="line"><a class="item" href="#coffee">Coffee&nbsp;shop</a></li>
                         <li class="line"><a class="item" href="#contacts">Contacts</a></li>
-                        <li class="line"><a class="item" href="#card">Library Card</a></li>
+                        <li class="line"><a class="item" href="#card">Library&nbsp;Card</a></li>
                     </ul>
+                <div class="cross">
+                        <span class="cross_line"></span>
+                        <span class="cross_line"></span>
+                </div>
                 </nav>
                 <div class="icon"></div>
+            <div class="burger">
+                    <span class="burger_line1"></span>
+                    <span class="burger_line2"></span>
+                    <span class="burger_line3"></span>
+            </div>
             </div>
         </header>
-
         <main>
             <div class="gradient"></div>
             <div class="welcome_block">
@@ -49,14 +57,24 @@
                 <p class="free_workpl">The Brooklyn Library is a free workspace, a large number of books and a cozy
                     coffee shop inside</p>
                 <div class="images_items">
-                    <img src="images/image1.jpg" alt="image with girl" width="450" height="560">
-                    <img src="images/image2.jpg" alt="busts" width="450" height="560">
-                    <img src="images/image3.jpg" alt="shelves with books" width="450" height="560">
+                    <button class="left_arrow"></button>
+                    <div class="girl_pic">
+                        <img src="images/image1.jpg" alt="image with girl">
+                    </div>
+                    <div class="pic_busts">
+                        <img class="only_for_desktop" src="images/image2.jpg" alt="busts">
+                    </div>
+                    <div class="pic_books">
+                        <img class="only_for_desktop" src="images/image3.jpg" alt="shelves with books">
+                    </div>
+                    <button class="right_arrow"></button>
                 </div>
                 <div class="carousel_pagination">
                     <div class="square"><button class="sp_circle" type="button"></button></div>
                     <div class="square"><button class="circle" type="button"></button></div>
                     <div class="square"><button class="circle" type="button"></button></div>
+                    <div class="second_to_last_circle"><button class="circle" type="button"></button></div>
+                    <div class="last_circle"><button class="circle" type="button"></button></div>
                 </div>
             </div>
             <div class="favor_block">
@@ -65,7 +83,7 @@
                 </section>
                 <p class="pick_favor">Pick favorites of season</p>
 
-
+            <div class="line_for_seasons">
                 <div class="winter">
                     <label for="wint">
                         <input type="radio" class="real_radio" id="wint" name="seasons"><span
@@ -99,7 +117,7 @@
                         <span class="custom_radio"></span>
                     </label>
                 </div>
-
+            </div>
 
                 <div class="favor_items">
                     <div class="block_for_book">
@@ -360,7 +378,10 @@
                             <p class="sp_library">Library Director: <a class="mail_amanda"
                                     href="mailto:AmandaHirst@gmail.com">Amanda Hirst</a></p>
                         </div>
-                    </div><img src="images/map.jpg" alt="map" width="696" height="414">
+                    </div>
+                    <div class="map">
+                        <img src="images/map.jpg" alt="map">
+                    </div>
                 </div>
             </div>
             <div class="card_box">
@@ -430,6 +451,7 @@
             </div>
         </footer>
     </div>
+    <script src="burger.js"></script>
 </body>
 
 </html>
