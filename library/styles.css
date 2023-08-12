@@ -350,11 +350,11 @@ h2::after {
 }
 
 .winter {
-    position: absolute;
+    position: relative;
     width: 104px;
     height: 24px;
-    top: 165px;
-    left: 20px;
+    top: 0px;
+    left: 0px;
 }
 
 input[type=radio] {
@@ -445,11 +445,11 @@ label {
 }
 
 .spring {
-    position: absolute;
+    position: relative;
     width: 99px;
     height: 24px;
-    left: 214px;
-    top: 165px;
+    left: 0px;
+    top: 0px;
 }
 
 .spr_text {
@@ -470,11 +470,11 @@ label {
 }
 
 .summer {
-    position: absolute;
+    position: relative;
     width: 116px;
     height: 24px;
-    top: 165px;
-    left: 403px;
+    top: 0px;
+    left: 0px;
 }
 
 .sum_text {
@@ -496,11 +496,11 @@ label {
 
 
 .autumn {
-    position: absolute;
+    position: relative;
     width: 111px;
     height: 24px;
-    top: 165px;
-    left: 609px;
+    top: 0px;
+    left: 0px;
 }
 
 .aut_text {
@@ -520,12 +520,23 @@ label {
     margin-left: 37px;
 }
 
+.line_for_seasons {
+    margin-left: 20px;
+    margin-top: 40px;
+    width: 700px;
+    height: 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 90px;
+}
+
 .favor_items {
     width: 1400px;
     height: 1150px;
     margin-left: 20px;
     margin-right: 20px;
-    margin-top: 104px;
+    margin-top: 40px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -1954,12 +1965,16 @@ footer {
         text-align: center;
     }
 
+    .line_for_seasons {
+        max-width: 700px;
+    }
+
     .winter {
-        position: absolute;
+        position: relative;
         width: 104px;
         height: 24px;
-        top: 165px;
-        left: 20px;
+        top: 0px;
+        left: 0px;
     }
 
     input[type=radio] {
@@ -2050,11 +2065,11 @@ footer {
     }
 
     .spring {
-        position: absolute;
+        position: relative;
         width: 99px;
         height: 24px;
-        left: 214px;
-        top: 165px;
+        left: 0px;
+        top: 0px;
     }
 
     .spr_text {
@@ -2075,11 +2090,11 @@ footer {
     }
 
     .summer {
-        position: absolute;
+        position: relative;
         width: 116px;
         height: 24px;
-        top: 165px;
-        left: 403px;
+        top: 0px;
+        left: 0px;
     }
 
     .sum_text {
@@ -2101,11 +2116,11 @@ footer {
 
 
     .autumn {
-        position: absolute;
+        position: relative;
         width: 111px;
         height: 24px;
-        top: 165px;
-        left: 609px;
+        top: 0px;
+        left: 0px;
     }
 
     .aut_text {
@@ -3571,6 +3586,7 @@ footer {
     .favor_items {
         gap: 42px;
         margin-bottom: 62px;
+        margin-top: 40px;
     }
 
     .cozy_coffee_shop {
@@ -3641,5 +3657,125 @@ footer {
 
     .social_media {
         margin-top: 8px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .map {
+        display: flex;
+        flex-wrap: nowrap;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .map img {
+        width: 100%;
+        height: 100%;
+    }
+
+    
+    .line_for_seasons {
+        width: 90%;
+        gap: 0px;
+    }
+
+    .images_items {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .welcome_text {
+        width: 100%;
+    }
+    .w_t {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .greetings{
+        margin-left: 0;
+    }
+
+    .block_for_book {
+        width: 80%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    .cozy_coffee_shop {
+        height: auto;
+    }
+    .favor_items {
+        margin-right: 0px;
+        justify-content: center;
+    }
+
+    .block_for_board {
+        width: 100%;
+    }
+    .image_book_1 {
+        display: none
+    }
+    .image_book_2 {
+        display: none;
+    }
+    
+    .image_book_3 {
+        display: none;
+    }
+    .image_book_4 {
+        display: none;
+    }
+    .find_card {
+        width: 100%;
+    }
+    .form_library {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    .input {
+        margin-left: 0px;
+        width: 100%;
+    }
+    .beige_box {
+        width: 100%;
+        margin-left: 0px;
+        margin-right: 0px;
+        left: 0px;
+        right: 0px;
+    }
+    .get_a_card {
+        width: 100%;
+    }
+    .get_c {
+        width: 100%;
+        text-align: center;
+    }
+    .you_will_be_able {
+        width: 100%;
+    }
+    .check_card {
+        margin-left: auto;
+        margin-right: auto;
+        left: 0px;
+        right: 0px;
+    }
+
+        
+    .line_for_seasons {
+        margin-right: 0;
+    }
+    .aut_text {
+        width: auto;
+    }
+
+    .phone_numbers {
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
     }
 }
