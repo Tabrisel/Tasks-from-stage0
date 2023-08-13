@@ -3,21 +3,18 @@ window.onload = (function () {
     const forMenu = document.querySelector(".menu");
     const forClose = document.querySelector(".cross");
     const forLinks = document.querySelectorAll(".item");
+    
     forBurger.addEventListener("click", event => {
         forMenu.classList.add("menu_ON");
         event.InMenu = true;
         document.body.style.overflowY = 'hidden';
     });
-    document.body.addEventListener("click", event => {
 
-        if (event.InMenu) return;
-        document.querySelector(".menu").classList.remove("menu_ON")
-        document.body.style.overflowY = 'visible';
-    });
     forClose.addEventListener("click", () => {
         forMenu.classList.remove("menu_ON");
         document.body.style.overflowY = 'visible';
     });
+
     if (window.innerWidth <= 1024) {
         for (let i = 0; i < forLinks.length; i += 1) {
             forLinks[i].addEventListener("click", () => {
@@ -26,4 +23,13 @@ window.onload = (function () {
             })
         }
     }
+
+    document.body.addEventListener("click", event => {
+
+        if (event.InMenu) return;
+        if (event.target !== forMenu) {
+        document.querySelector(".menu").classList.remove("menu_ON")
+        document.body.style.overflowY = 'visible'};
+    });
+
 }());
