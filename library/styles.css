@@ -237,6 +237,7 @@ h2::after {
 }
 
 .free_workpl {
+    overflow: hidden;
     width: 1440px;
     height: 40px;
     margin-top: 40px;
@@ -248,6 +249,9 @@ h2::after {
 }
 
 .images_items {
+    width: 1400px;
+    overflow: hidden;
+    position: relative;
     display: flex;
     gap: 25px;
     justify-content: space-between;
@@ -258,6 +262,39 @@ h2::after {
     margin-bottom: 35px;
 }
 
+.slider_for_images{
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    width: 1400px;
+    height: 560px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 35px;
+    width: 2350px;
+    transition: all 1s;
+}
+
+.slider_First {
+    margin-left: 0px;
+}
+
+.slider_pagSecond {
+    margin-left: -475px;
+}
+
+.slider_pagThird {
+    margin-left: -950px;
+}
+
+.slider_pagFourth {
+    margin-left: -1425px;
+}
+
+.slider_pagLast {
+    margin-left: -1900px;
+}
+
 .carousel_pagination {
     height: 16px;
     margin-left: 681px;
@@ -266,11 +303,11 @@ h2::after {
     padding-right: 0px;
 }
 
-.second_to_last_circle {
+.square.second_to_last_circle {
     display: none;
 }
 
-.last_circle {
+.square.last_circle {
     display: none;
 }
 
@@ -294,16 +331,12 @@ h2::after {
     padding-right: 0px;
 }
 
-.square:hover {
-    cursor: pointer;
-    opacity: 20%;
-}
-
 .sp_circle {
+    cursor: initial;
     height: 16px;
     width: 16px;
     border-radius: 50px;
-    background-color: #BB945F;
+    background-color: #bb945f;
     margin-left: 0px;
     margin-right: 0px;
     padding: 0px;
@@ -529,6 +562,7 @@ label {
     justify-content: space-between;
     align-items: center;
     gap: 90px;
+    z-index: 8;
 }
 
 .favor_items {
@@ -596,6 +630,26 @@ label {
     letter-spacing: 2px;
     text-align: left;
     text-transform: capitalize;
+}
+
+@keyframes blocksAppear {
+    0% { opacity: 0 }
+    50% { opacity: 0.5 }
+    100% { opacity: 1 }
+  }
+
+  @keyframes blocksAppear2 {
+    0% { opacity: 0 }
+    50% { opacity: 0.5 }
+    100% { opacity: 1 }
+  }
+
+.appear {
+    animation: blocksAppear 1s;
+}
+
+.appear2 {
+    animation: blocksAppear2 1s;
 }
 
 .upper_title {
@@ -691,6 +745,7 @@ label {
 }
 
 .image_book_1 {
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -700,7 +755,7 @@ label {
 }
 
 .image_book_1_spr {
-    display: none;
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -711,7 +766,7 @@ label {
 }
 
 .image_book_1_sum {
-    display: none;
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -722,8 +777,8 @@ label {
 }
 
 .image_book_1_aut {
+    transition: all .5s ease-in-out;
     position: absolute;
-    display: none;
     bottom: -1px;
     right: -40px;
     width: 200px;
@@ -732,7 +787,12 @@ label {
     z-index: 1;
 }
 
+.display_none {
+    opacity: 0; 
+}
+
 .image_book_2 {
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -742,7 +802,7 @@ label {
 }
 
 .image_book_2_spr {
-    display: none;
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -754,8 +814,8 @@ label {
 
 
 .image_book_2_sum {
+    transition: all .5s ease-in-out;
     position: absolute;
-    display: none;
     bottom: -1px;
     right: -40px;
     width: 200px;
@@ -765,8 +825,8 @@ label {
 }
 
 .image_book_2_aut {
+    transition: all .5s ease-in-out;
     position: absolute;
-    display: none;
     bottom: -1px;
     right: -40px;
     width: 200px;
@@ -776,6 +836,7 @@ label {
 }
 
 .image_book_3 {
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -785,7 +846,7 @@ label {
 }
 
 .image_book_3_spr {
-    display: none;
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -796,7 +857,7 @@ label {
 }
 
 .image_book_3_sum {
-    display: none;
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -807,8 +868,8 @@ label {
 }
 
 .image_book_3_aut {
+    transition: all .5s ease-in-out;
     position: absolute;
-    display: none;
     bottom: -1px;
     right: -40px;
     width: 200px;
@@ -818,6 +879,7 @@ label {
 }
 
 .image_book_4 {
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -827,7 +889,7 @@ label {
 }
 
 .image_book_4_spr {
-    display: none;
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -838,7 +900,7 @@ label {
 }
 
 .image_book_4_sum {
-    display: none;
+    transition: all .5s ease-in-out;
     position: absolute;
     bottom: -1px;
     right: -40px;
@@ -849,8 +911,8 @@ label {
 }
 
 .image_book_4_aut {
+    transition: all .5s ease-in-out;
     position: absolute;
-    display: none;
     bottom: -1px;
     right: -40px;
     width: 200px;
@@ -1332,7 +1394,8 @@ label {
     top: 309px;
     left: 176px;
     padding: 10px 40px 10px 40px;
-    border-radius: 2px box-sizing: border-box;
+    border-radius: 2px;
+    box-sizing: border-box;
     width: 242px;
     height: 44px;
     border: 1px solid rgba(12, 12, 14, 1);
@@ -1678,7 +1741,7 @@ footer {
 }
 
 /* media-start */
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1439px) {
     .wrapper {
         max-width: 100%;
         margin: 0;
@@ -1860,29 +1923,73 @@ footer {
     }
 
     .images_items {
+        width: 925px;
         display: flex;
-        flex-wrap: nowrap;
-        margin-left: 0px;
-        margin-right: 0px;
         gap: 25px;
-        width: 100%;
-        height: auto;
+        justify-content: space-between;
+        height: 560px;
+        margin-left: auto;
+        margin-right: auto;
         margin-bottom: 35px;
+        overflow: hidden;
     }
 
+    .slider_for_images{
+        display: flex;
+        gap: 25px;
+        justify-content: space-between;
+        width: 1400px;
+        height: 560px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 35px;
+        width: 2350px;
+        transition: all 1s;
+    }
+    
+    .slider_pagFirst {
+        margin-left: 0px;
+    }
+    
+    .slider_pagSecond {
+        margin-left: -475px;
+    }
+    
+    .slider_pagThird {
+        margin-left: -950px;
+    }
+    
+    .slider_pagFourth {
+        margin-left: -1425px;
+    }
+    
+    .slider_pagLast {
+        margin-left: -1900px;
+    }
+    
     .girl_pic img {
-        max-width: 100%;
-        max-height: 100%;
+        width: 450px;
+        max-height: 560px;
     }
 
     .pic_busts img {
-        max-width: 100%;
-        max-height: 100%;
+        width: 450px;
+        max-height: 560px;
     }
 
     .pic_books img {
-        max-width: 100%;
-        max-height: 100%;
+        width: 450px;
+        max-height: 560px;
+    }
+
+    .pic_stairs img {
+        width: 450px;
+        max-height: 560px;
+    }
+
+    .pic_roof_arch img {
+        width: 450px;
+        max-height: 560px;
     }
 
     .carousel_pagination {
@@ -1906,11 +2013,6 @@ footer {
         align-items: center;
         padding-left: 0px;
         padding-right: 0px;
-    }
-
-    .square:hover {
-        cursor: pointer;
-        opacity: 20%;
     }
 
     .sp_circle {
@@ -1967,6 +2069,7 @@ footer {
 
     .line_for_seasons {
         max-width: 700px;
+        z-index: 7;
     }
 
     .winter {
@@ -2213,6 +2316,7 @@ footer {
     }
 
     .upper_title {
+        transition: all .5s;
         font-family: Inter;
         font-size: 15px;
         font-weight: 700;
@@ -2314,7 +2418,6 @@ footer {
     }
 
     .image_book_1_spr {
-        display: none;
         position: absolute;
         bottom: -1px;
         right: -40px;
@@ -2325,7 +2428,6 @@ footer {
     }
 
     .image_book_1_sum {
-        display: none;
         position: absolute;
         bottom: -1px;
         right: -40px;
@@ -2337,7 +2439,6 @@ footer {
 
     .image_book_1_aut {
         position: absolute;
-        display: none;
         bottom: -1px;
         right: -40px;
         width: 200px;
@@ -2356,7 +2457,6 @@ footer {
     }
 
     .image_book_2_spr {
-        display: none;
         position: absolute;
         bottom: -1px;
         right: -40px;
@@ -2369,7 +2469,6 @@ footer {
 
     .image_book_2_sum {
         position: absolute;
-        display: none;
         bottom: -1px;
         right: -40px;
         width: 200px;
@@ -2380,7 +2479,6 @@ footer {
 
     .image_book_2_aut {
         position: absolute;
-        display: none;
         bottom: -1px;
         right: -40px;
         width: 200px;
@@ -2399,7 +2497,6 @@ footer {
     }
 
     .image_book_3_spr {
-        display: none;
         position: absolute;
         bottom: -1px;
         right: -40px;
@@ -2410,7 +2507,6 @@ footer {
     }
 
     .image_book_3_sum {
-        display: none;
         position: absolute;
         bottom: -1px;
         right: -40px;
@@ -2422,7 +2518,6 @@ footer {
 
     .image_book_3_aut {
         position: absolute;
-        display: none;
         bottom: -1px;
         right: -40px;
         width: 200px;
@@ -2441,7 +2536,6 @@ footer {
     }
 
     .image_book_4_spr {
-        display: none;
         position: absolute;
         bottom: -1px;
         right: -40px;
@@ -2452,7 +2546,6 @@ footer {
     }
 
     .image_book_4_sum {
-        display: none;
         position: absolute;
         bottom: -1px;
         right: -40px;
@@ -2464,7 +2557,6 @@ footer {
 
     .image_book_4_aut {
         position: absolute;
-        display: none;
         bottom: -1px;
         right: -40px;
         width: 200px;
@@ -2974,7 +3066,8 @@ footer {
         top: 309px;
         left: 176px;
         padding: 10px 40px 10px 40px;
-        border-radius: 2px box-sizing: border-box;
+        border-radius: 2px;
+        box-sizing: border-box;
         width: 242px;
         height: 44px;
         border: 1px solid rgba(12, 12, 14, 1);
@@ -3456,10 +3549,92 @@ footer {
         transform: translateY(-50%) rotate(-44.76deg);
     }
 
+    .images_items{
+        width: 450px;
+    }
+
+    .box_for_slider_images {
+        height: 560px;
+        width: 614px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 37px;
+    }
+
     .carousel_pagination {
         height: 16px;
         margin-left: 0px;
         display: flex;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .carousel_pagination {
+        height: 26px;
+        margin-bottom: 50px;
+        margin-top: 7px;
+    }
+
+    .left_arrow {
+        display: block;
+        margin-top: 7px;
+        margin-left: 1px;
+        height: 26px;
+        width: 26px;
+        background: transparent;
+        background-image: url("svg/arrow_left.svg");
+    }
+
+    .right_arrow {
+        display: block;
+        margin-top: 7px;
+        margin-right: -3px;
+        height: 26px;
+        width: 26px;
+        background: transparent;
+        background-image: url("svg/arrow_right.svg");
+    }
+
+    .left_arrow:hover {
+        opacity: 40%;
+    }
+
+    .right_arrow:hover {
+        opacity: 40%;
+    }
+
+
+    .disabled {
+        pointer-events: none;
+    }
+
+    .square {
+        align-items: flex-start;
+    }
+
+    .square.second_to_last_circle {
+        display: block;
+        box-sizing: border-box;
+        height: 26px;
+        width: 26px;
+        transition: .5s;
+        display: flex;
+        justify-content: center;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .square.last_circle {
+        display: block;
+        box-sizing: border-box;
+        height: 26px;
+        width: 26px;
+        transition: .5s;
+        display: flex;
+        justify-content: center;
         padding-left: 0px;
         padding-right: 0px;
     }
@@ -3494,99 +3669,22 @@ footer {
         height: 80px;
     }
 
-    .pic_busts {
-        display: none;
-    }
-
-    .pic_books {
-        display: none;
-    }
-
-    .girl_pic {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .images_items {
-        width: 614px;
-        height: ;
-        align-items: center;
-        gap: 0px;
-        justify-content: center;
-        margin-bottom: 0px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 20px;
-    }
-
-    .carousel_pagination {
-        height: 26px;
-        margin-bottom: 50px;
-        margin-top: 25px;
-    }
-
-    .left_arrow {
-        display: block;
-        margin-top: 42px;
-        margin-left: 1px;
-        height: 26px;
-        width: 26px;
-        background: transparent;
-        background-image: url("svg/arrow_left.svg");
-    }
-
-    .right_arrow {
-        display: block;
-        margin-top: 42px;
-        margin-right: -3px;
-        height: 26px;
-        width: 26px;
-        background: transparent;
-        background-image: url("svg/arrow_right.svg");
-    }
-
-    .square {
-        align-items: flex-start;
-    }
-
-    .second_to_last_circle {
-        display: block;
-        box-sizing: border-box;
-        height: 26px;
-        width: 26px;
-        transition: .5s;
-        display: flex;
-        justify-content: center;
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-    .last_circle {
-        display: block;
-        box-sizing: border-box;
-        height: 26px;
-        width: 26px;
-        transition: .5s;
-        display: flex;
-        justify-content: center;
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-    .second_to_last_circle:hover {
-        cursor: pointer;
-        opacity: 20%;
-    }
-
-    .last_circle:hover {
-        cursor: pointer;
-        opacity: 20%;
-    }
-
+  
     .favor_items {
         gap: 42px;
         margin-bottom: 62px;
         margin-top: 40px;
+    }
+
+    .line_for_seasons{
+        margin-left: auto;
+        margin-right: auto;
+        position: sticky;
+        top: 15px;
+        background-color: rgba(187, 149, 95, 0.766);
+        z-index: 7;
+        padding-top: 10px;
+        padding-bottom: 10px;
     }
 
     .cozy_coffee_shop {
@@ -3680,9 +3778,6 @@ footer {
         gap: 0px;
     }
 
-    .images_items {
-        width: 90%;
-    }
 }
 
 @media screen and (max-width: 640px) {
