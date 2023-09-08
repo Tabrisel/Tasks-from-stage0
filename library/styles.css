@@ -237,6 +237,7 @@ h2::after {
 }
 
 .free_workpl {
+    overflow: hidden;
     width: 1440px;
     height: 40px;
     margin-top: 40px;
@@ -248,6 +249,9 @@ h2::after {
 }
 
 .images_items {
+    width: 1400px;
+    overflow: hidden;
+    position: relative;
     display: flex;
     gap: 25px;
     justify-content: space-between;
@@ -258,7 +262,38 @@ h2::after {
     margin-bottom: 35px;
 }
 
+.slider_for_images{
+    display: flex;
+    gap: 25px;
+    justify-content: space-between;
+    width: 1400px;
+    height: 560px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-bottom: 35px;
+    width: 2350px;
+    transition: all 1s;
+}
 
+.slider_First {
+    margin-left: 0px;
+}
+
+.slider_pagSecond {
+    margin-left: -475px;
+}
+
+.slider_pagThird {
+    margin-left: -950px;
+}
+
+.slider_pagFourth {
+    margin-left: -1425px;
+}
+
+.slider_pagLast {
+    margin-left: -1900px;
+}
 
 .carousel_pagination {
     height: 16px;
@@ -268,11 +303,11 @@ h2::after {
     padding-right: 0px;
 }
 
-.second_to_last_circle {
+.square.second_to_last_circle {
     display: none;
 }
 
-.last_circle {
+.square.last_circle {
     display: none;
 }
 
@@ -296,12 +331,8 @@ h2::after {
     padding-right: 0px;
 }
 
-.square:hover {
-    cursor: pointer;
-    opacity: 20%;
-}
-
 .sp_circle {
+    cursor: initial;
     height: 16px;
     width: 16px;
     border-radius: 50px;
@@ -1681,7 +1712,7 @@ footer {
 }
 
 /* media-start */
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1439px) {
     .wrapper {
         max-width: 100%;
         margin: 0;
@@ -1863,19 +1894,50 @@ footer {
     }
 
     .images_items {
+        width: 925px;
         display: flex;
         gap: 25px;
         justify-content: space-between;
-        width: 100%;
         height: 560px;
-        margin-left: 20px;
-        margin-right: 20px;
+        margin-left: auto;
+        margin-right: auto;
         margin-bottom: 35px;
         overflow: hidden;
     }
+
+    .slider_for_images{
+        display: flex;
+        gap: 25px;
+        justify-content: space-between;
+        width: 1400px;
+        height: 560px;
+        margin-left: 0px;
+        margin-right: 0px;
+        margin-bottom: 35px;
+        width: 2350px;
+        transition: all 1s;
+    }
     
-
-
+    .slider_pagFirst {
+        margin-left: 0px;
+    }
+    
+    .slider_pagSecond {
+        margin-left: -475px;
+    }
+    
+    .slider_pagThird {
+        margin-left: -950px;
+    }
+    
+    .slider_pagFourth {
+        margin-left: -1425px;
+    }
+    
+    .slider_pagLast {
+        margin-left: -1900px;
+    }
+    
     .girl_pic img {
         width: 450px;
         max-height: 560px;
@@ -1894,12 +1956,11 @@ footer {
     .pic_stairs img {
         width: 450px;
         max-height: 560px;
-        overflow: hidden;
     }
 
     .pic_roof_arch img {
-        max-width: 100%;
-        max-height: 100%;
+        width: 450px;
+        max-height: 560px;
     }
 
     .carousel_pagination {
@@ -1913,6 +1974,8 @@ footer {
         margin-bottom: 40px;
     }
 
+    .
+
     .square {
         box-sizing: border-box;
         height: 26px;
@@ -1923,11 +1986,6 @@ footer {
         align-items: center;
         padding-left: 0px;
         padding-right: 0px;
-    }
-
-    .square:hover {
-        cursor: pointer;
-        opacity: 20%;
     }
 
     .sp_circle {
@@ -3473,10 +3531,92 @@ footer {
         transform: translateY(-50%) rotate(-44.76deg);
     }
 
+    .images_items{
+        width: 450px;
+    }
+
+    .box_for_slider_images {
+        height: 560px;
+        width: 614px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 37px;
+    }
+
     .carousel_pagination {
         height: 16px;
         margin-left: 0px;
         display: flex;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .carousel_pagination {
+        height: 26px;
+        margin-bottom: 50px;
+        margin-top: 7px;
+    }
+
+    .left_arrow {
+        display: block;
+        margin-top: 7px;
+        margin-left: 1px;
+        height: 26px;
+        width: 26px;
+        background: transparent;
+        background-image: url("svg/arrow_left.svg");
+    }
+
+    .right_arrow {
+        display: block;
+        margin-top: 7px;
+        margin-right: -3px;
+        height: 26px;
+        width: 26px;
+        background: transparent;
+        background-image: url("svg/arrow_right.svg");
+    }
+
+    .left_arrow:hover {
+        opacity: 40%;
+    }
+
+    .right_arrow:hover {
+        opacity: 40%;
+    }
+
+
+    .disabled {
+        pointer-events: none;
+    }
+
+    .square {
+        align-items: flex-start;
+    }
+
+    .square.second_to_last_circle {
+        display: block;
+        box-sizing: border-box;
+        height: 26px;
+        width: 26px;
+        transition: .5s;
+        display: flex;
+        justify-content: center;
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+
+    .square.last_circle {
+        display: block;
+        box-sizing: border-box;
+        height: 26px;
+        width: 26px;
+        transition: .5s;
+        display: flex;
+        justify-content: center;
         padding-left: 0px;
         padding-right: 0px;
     }
@@ -3511,103 +3651,7 @@ footer {
         height: 80px;
     }
 
-    .pic_busts {
-        display: none;
-    }
-
-    .pic_books {
-        display: none;
-    }
-
-    .pic_stairs {
-        display: none;
-        
-    }
-
-    .pic_roof_arch {
-        display: none;
-    }
-
-    .girl_pic {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .images_items {
-        width: 614px;
-        align-items: center;
-        gap: 0px;
-        justify-content: center;
-        margin-bottom: 0px;
-        margin-left: auto;
-        margin-right: auto;
-        margin-top: 20px;
-    }
-
-    .carousel_pagination {
-        height: 26px;
-        margin-bottom: 50px;
-        margin-top: 25px;
-    }
-
-    .left_arrow {
-        display: block;
-        margin-top: 42px;
-        margin-left: 1px;
-        height: 26px;
-        width: 26px;
-        background: transparent;
-        background-image: url("svg/arrow_left.svg");
-    }
-
-    .right_arrow {
-        display: block;
-        margin-top: 42px;
-        margin-right: -3px;
-        height: 26px;
-        width: 26px;
-        background: transparent;
-        background-image: url("svg/arrow_right.svg");
-    }
-
-    .square {
-        align-items: flex-start;
-    }
-
-    .second_to_last_circle {
-        display: block;
-        box-sizing: border-box;
-        height: 26px;
-        width: 26px;
-        transition: .5s;
-        display: flex;
-        justify-content: center;
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-    .last_circle {
-        display: block;
-        box-sizing: border-box;
-        height: 26px;
-        width: 26px;
-        transition: .5s;
-        display: flex;
-        justify-content: center;
-        padding-left: 0px;
-        padding-right: 0px;
-    }
-
-    .second_to_last_circle:hover {
-        cursor: pointer;
-        opacity: 20%;
-    }
-
-    .last_circle:hover {
-        cursor: pointer;
-        opacity: 20%;
-    }
-
+  
     .favor_items {
         gap: 42px;
         margin-bottom: 62px;
@@ -3705,9 +3749,6 @@ footer {
         gap: 0px;
     }
 
-    .images_items {
-        width: 90%;
-    }
 }
 
 @media screen and (max-width: 640px) {
