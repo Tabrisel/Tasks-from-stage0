@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="reset.css">
     <link rel="stylesheet" type="text/css" href="styles.css">
     <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
-    <script src="index.js"></script>
+    <script src="console.js"></script>
 </head>
 
 
@@ -56,25 +56,35 @@
                 </section>
                 <p class="free_workpl">The Brooklyn Library is a free workspace, a large number of books and a cozy
                     coffee shop inside</p>
+                <div class="box_for_slider_images">
+                <button class="left_arrow"></button>
                 <div class="images_items">
-                    <button class="left_arrow"></button>
-                    <div class="girl_pic">
-                        <img src="images/image1.jpg" alt="image with girl">
-                    </div>
-                    <div class="pic_busts">
-                        <img class="only_for_desktop" src="images/image2.jpg" alt="busts">
-                    </div>
-                    <div class="pic_books">
-                        <img class="only_for_desktop" src="images/image3.jpg" alt="shelves with books">
-                    </div>
-                    <button class="right_arrow"></button>
+                        <div class="slider_for_images slider_pagFirst">
+                            <div class="girl_pic">
+                                <img src="images/image1.jpg" alt="image with girl">
+                            </div>
+                            <div class="pic_busts">
+                                <img src="images/image2.jpg" alt="busts">
+                            </div>
+                            <div class="pic_books">
+                                <img src="images/image3.jpg" alt="shelves with books">
+                            </div>
+                            <div class="pic_stairs">
+                                <img src="images/image4.jpg" alt="image with stairs">
+                            </div>
+                            <div class="pic_roof_arch">
+                                <img src="images/image5.jpg" alt="image with arch">
+                            </div>
+                        </div>
+                </div>
+                <button class="right_arrow"></button>
                 </div>
                 <div class="carousel_pagination">
-                    <div class="square"><button class="sp_circle" type="button"></button></div>
-                    <div class="square"><button class="circle" type="button"></button></div>
-                    <div class="square"><button class="circle" type="button"></button></div>
-                    <div class="second_to_last_circle"><button class="circle" type="button"></button></div>
-                    <div class="last_circle"><button class="circle" type="button"></button></div>
+                    <div class="square pagFirst"><button class="sp_circle" type="button"></button></div>
+                    <div class="square pagSecond"><button class="circle" type="button"></button></div>
+                    <div class="square pagThird"><button class="circle" type="button"></button></div>
+                    <div class="square second_to_last_circle"><button class="circle" type="button"></button></div>
+                    <div class="square last_circle"><button class="circle" type="button"></button></div>
                 </div>
             </div>
             <div class="favor_block">
@@ -83,7 +93,9 @@
                 </section>
                 <p class="pick_favor">Pick favorites of season</p>
 
+        
             <div class="line_for_seasons">
+
                 <div class="winter">
                     <label for="wint">
                         <input type="radio" class="real_radio" id="wint" name="seasons"><span
@@ -118,6 +130,7 @@
                     </label>
                 </div>
             </div>
+            
 
                 <div class="favor_items">
                     <div class="block_for_book">
@@ -133,9 +146,9 @@
                                 Not for the faint of heart.</p>
                             <button class="buy" type="button">Buy</button>
                             <div class="image_book_1"></div>
-                            <div class="image_book_1_spr"></div>
-                            <div class="image_book_1_sum"></div>
-                            <div class="image_book_1_aut"></div>
+                            <div class="image_book_1_spr display_none"></div>
+                            <div class="image_book_1_sum display_none"></div>
+                            <div class="image_book_1_aut display_none"></div>
                         </div>
 
                     </div>
@@ -151,9 +164,9 @@
                                 quaint town in upstate New York and befriends a beautiful witch.</p>
                             <button class="buy" type="button">Buy</button>
                             <div class="image_book_2"></div>
-                            <div class="image_book_2_spr"></div>
-                            <div class="image_book_2_sum"></div>
-                            <div class="image_book_2_aut"></div>
+                            <div class="image_book_2_spr display_none"></div>
+                            <div class="image_book_2_sum display_none"></div>
+                            <div class="image_book_2_aut display_none"></div>
                         </div>
                     </div>
 
@@ -168,15 +181,14 @@
                                 <p class="upper_title">Dante:&nbsp;Poet&nbsp;of&nbsp;the&nbsp;Secular&nbsp;World</p>
                                 <p class=title_f>By&nbsp;Erich&nbsp;Auerbach</p>
                             </div>
-                            <p class="about_b_sp">Auerbach's engaging book places the<br>'Comedy' within the tradition
-                                of epic,<br>tragedy, and philosophy in general,<br>arguing for Dante's uniqueness as
-                                one<br>who raised the individual and his<br>drama of soul into something of<br>divine
-                                significance—an inspired<br>introduction to Dante's main themes.</p>
+                            <p class="about_b">Auerbach's Engaging Book Places The 'Comedy' Within The Tradition Of Epic, Tragedy, And Philosophy
+                                 In General, Arguing For Dante's Uniqueness As One Who Raised The Individual And His Drama Of Soul Into Something Of 
+                                 Divine Significance—An Inspired Introduction To Dante's Main Themes.</p>
                             <button class="buy" type="button">Buy</button>
                             <div class="image_book_3"></div>
-                            <div class="image_book_3_spr"></div>
-                            <div class="image_book_3_sum"></div>
-                            <div class="image_book_3_aut"></div>
+                            <div class="image_book_3_spr display_none"></div>
+                            <div class="image_book_3_sum display_none"></div>
+                            <div class="image_book_3_aut display_none"></div>
                         </div>
                     </div>
 
@@ -190,11 +202,11 @@
                             <p class="about_b">A timely and revelatory new biography of Queen Elizabeth (and her family)
                                 exploring how the Windsors have evolved and thrived as the modern world has changed
                                 around them.</p>
-                            <button disabled class="own" type="button">Own</button>
+                            <button disabled class="buy" type="button">Buy</button>
                             <div class="image_book_4"></div>
-                            <div class="image_book_4_spr"></div>
-                            <div class="image_book_4_sum"></div>
-                            <div class="image_book_4_aut"></div>
+                            <div class="image_book_4_spr display_none"></div>
+                            <div class="image_book_4_sum display_none"></div>
+                            <div class="image_book_4_aut display_none"></div>
                         </div>
                     </div>
 
@@ -451,6 +463,7 @@
             </div>
         </footer>
     </div>
+    <script src="index.js"></script>
     <script src="burger.js"></script>
 </body>
 
