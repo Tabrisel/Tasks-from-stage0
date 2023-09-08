@@ -258,6 +258,8 @@ h2::after {
     margin-bottom: 35px;
 }
 
+
+
 .carousel_pagination {
     height: 16px;
     margin-left: 681px;
@@ -1332,7 +1334,8 @@ label {
     top: 309px;
     left: 176px;
     padding: 10px 40px 10px 40px;
-    border-radius: 2px box-sizing: border-box;
+    border-radius: 2px;
+    box-sizing: border-box;
     width: 242px;
     height: 44px;
     border: 1px solid rgba(12, 12, 14, 1);
@@ -1861,26 +1864,40 @@ footer {
 
     .images_items {
         display: flex;
-        flex-wrap: nowrap;
-        margin-left: 0px;
-        margin-right: 0px;
         gap: 25px;
+        justify-content: space-between;
         width: 100%;
-        height: auto;
+        height: 560px;
+        margin-left: 20px;
+        margin-right: 20px;
         margin-bottom: 35px;
+        overflow: hidden;
     }
+    
+
 
     .girl_pic img {
-        max-width: 100%;
-        max-height: 100%;
+        width: 450px;
+        max-height: 560px;
     }
 
     .pic_busts img {
-        max-width: 100%;
-        max-height: 100%;
+        width: 450px;
+        max-height: 560px;
     }
 
     .pic_books img {
+        width: 450px;
+        max-height: 560px;
+    }
+
+    .pic_stairs img {
+        width: 450px;
+        max-height: 560px;
+        overflow: hidden;
+    }
+
+    .pic_roof_arch img {
         max-width: 100%;
         max-height: 100%;
     }
@@ -3502,6 +3519,15 @@ footer {
         display: none;
     }
 
+    .pic_stairs {
+        display: none;
+        
+    }
+
+    .pic_roof_arch {
+        display: none;
+    }
+
     .girl_pic {
         margin-left: auto;
         margin-right: auto;
@@ -3509,7 +3535,6 @@ footer {
 
     .images_items {
         width: 614px;
-        height: ;
         align-items: center;
         gap: 0px;
         justify-content: center;
