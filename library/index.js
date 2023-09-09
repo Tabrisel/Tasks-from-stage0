@@ -1,5 +1,43 @@
+/*Start Burger*/
 
 window.onload = (function () {
+    const forBurger = document.querySelector(".burger");
+    const forMenu = document.querySelector(".menu");
+    const forClose = document.querySelector(".cross");
+    const forLinks = document.querySelectorAll(".item");
+    
+    forBurger.addEventListener("click", event => {
+        forMenu.classList.add("menu_ON");
+        event.InMenu = true;
+        document.body.style.overflowY = 'hidden';
+    });
+
+    forClose.addEventListener("click", () => {
+        forMenu.classList.remove("menu_ON");
+        document.body.style.overflowY = 'visible';
+    });
+
+    if (window.innerWidth <= 1024) {
+        for (let i = 0; i < forLinks.length; i += 1) {
+            forLinks[i].addEventListener("click", () => {
+                forMenu.classList.remove("menu_ON");
+                document.body.style.overflowY = 'visible';
+            })
+        }
+    }
+
+    document.body.addEventListener("click", event => {
+
+        if (event.InMenu) return;
+        if (event.target !== forMenu) {
+        document.querySelector(".menu").classList.remove("menu_ON")
+        document.body.style.overflowY = 'visible'};
+    });
+
+/* Burger end */
+
+
+/* Library_part3 - JS */
     let Pagination = document.body.querySelectorAll(".square");
     let pagFirst = document.body.querySelector(".pagFirst");
     let pagSecond = document.body.querySelector(".pagSecond");
@@ -342,6 +380,53 @@ window.onload = (function () {
                 aboutBook[i].textContent = textAboutBook_aut[i];
             }   
         })
+
+
+        /* DropMenu */
+
+            const dropMenu = document.querySelector(".dropMenu");
+            const icon = document.querySelector(".icon");
+            const logInRegister = document.querySelector(".LogIn_Register");
+            let profile = document.querySelector(".profile");
+            
+            
+            icon.addEventListener("click", () => {
+                event.inDropMenu = true;
+                dropMenu.classList.add("dropMenu_ON");
+                if (event.InMenu = true) {
+                document.querySelector(".menu").classList.remove("menu_ON")
+                document.body.style.overflowY = 'visible'};
+            });
+        
+            /*forClose.addEventListener("click", () => {
+                forMenu.classList.remove("menu_ON");
+                document.body.style.overflowY = 'visible';
+            });
+        
+            if (window.innerWidth <= 1024) {
+                for (let i = 0; i < forLinks.length; i += 1) {
+                    forLinks[i].addEventListener("click", () => {
+                        forMenu.classList.remove("menu_ON");
+                        document.body.style.overflowY = 'visible';
+                    })
+                }
+            }
+            */
+        
+            document.body.addEventListener("click", event => {
+
+                const outMenu = event.composedPath().includes(dropMenu);
+        
+                if (! outMenu) {
+                document.querySelector(".dropMenu").classList.remove("dropMenu_ON")
+                }
+
+
+            });
+        
+
+
+
 
 
 }());
