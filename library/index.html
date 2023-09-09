@@ -15,6 +15,7 @@
 
 <body>
     <div class="wrapper">
+
         <header>
             <div class="header_box">
 
@@ -46,9 +47,7 @@
                             <div class="Log_In">
                                 <p>Log In</p>
                             </div>
-                            <div class="Register">
-                                <p>Register</p>
-                            </div>
+                            <button class="register">Register</button>
                         </div>
                     </div>
                 </div>
@@ -64,6 +63,57 @@
             </div>
         </header>
         <main>
+
+            <div class="black_box"></div>
+            <div class="box_modal">
+            <div class="modalWindowRegister">
+                <div class="crossRegister">
+                    <span class="crossRegisterline"></span>
+                    <span class="crossRegisterline"></span>
+                </div>
+                <div class="registr_title">
+                    <p>REGISTER</p>
+                </div>
+                <div class="window_labels">
+                    <div class="labels_register first_name">
+                        <p>First name</p>
+                        <label>
+                            <input required class="register_square" type="text">
+                        </label>
+                    </div>
+                    <div class="labels_register last_name">
+                        <p>Last name</p>
+                        <label>
+                            <input required class="register_square" type="text">
+                        </label>
+                    </div>
+                    <div class="labels_register email">
+                        <p>E-mail</p>
+                        <label>
+                            <input required class="register_square" type="email" placeholder="E-mail">
+                        </label>
+                    </div>
+                    <div class="labels_register password">
+                        <p>Password</p>
+                        <label>
+                            <input required class="register_square" type="password" required
+                            minlength="8">
+                        </label>
+                    </div>
+                    <button class="SignUpButton">Sign Up</button>
+                </div>
+
+                <div class="already_have_acc">
+                    <div class="text_already">
+                        <p>Already have an account?</p>
+                    </div>
+                    <button class="Login">Login</button>
+                </div>
+            </div>
+            </div>
+
+
+
             <div class="gradient"></div>
             <div class="welcome_block">
                 <div class="welcome_text">
@@ -447,7 +497,7 @@
                             <p class="ywba">You will be able to see a reader card after logging into account or you can
                                 register a new account</p>
                         </div>
-                        <div class="two_buttons"><button class="for_sign_log" type="button">Sign Up</button><button
+                        <div class="two_buttons"><button class="for_sign_log signUpButton" type="button">Sign Up</button><button
                                 class="for_sign_log" type="button">Log In</button></div>
                     </div>
                 </div>
@@ -484,6 +534,7 @@
                 </div>
             </div>
         </footer>
+    </div>
     </div>
     <script src="index.js"></script>
 </body>

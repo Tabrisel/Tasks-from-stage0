@@ -194,19 +194,232 @@ header {
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
+    gap: 10px;
 }
+
+.labels_register {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+    width: 200px;
+    height: 50px;
+    margin: 0 0;;
+}
+
+.register_square {
+    margin-left: 0;
+    width: 200px;
+    height: 20px;
+    border: 1px solid;
+    border-radius: 0;
+    border-color: #BB945F;
+    font-size: 15px;
+    }
+
+.labels_register p{
+    width: 78px;
+    height: 20px;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-align: flex-start;
+}
+
 
 .Log_In {
     width: 44px;
     height: 20px;
 }
 
-.Register {
+.register{
+    background-color: transparent;
+}
+
+.register:hover{
+    color: rgba(187, 148, 95, 1);
+    text-decoration: underline;
+}
+
+button .register {
     width: 59px;
     height: 20px;
 }
 
 /* end DropMenu */
+
+/*ModalWindowRegister*/
+.black_box {
+    transition: all .3s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #100f0f6b;
+    z-index: 11;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s, visibility .3s;
+}
+
+.box_modal {
+    visibility: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 12;
+}
+
+.modalWindowRegister{
+    transition: all .3s;
+    transform: scale(0.5);
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    max-width: 250px;
+    height: 382px;
+    background-color: #FFFFFF;
+    z-index: 13;
+    box-shadow: 4px 4px 35px -4px rgba(34, 60, 80, 0.2);
+}
+
+.modal_ON {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.crossRegister{
+    position: relative;
+    width: 15px;
+    height: 15px;
+    cursor: pointer;
+    display: flex;
+    align-self: flex-end;
+    margin-right: 15px;
+}
+
+
+.crossRegisterline {
+    position: relative;
+    display: block;
+    position: absolute;
+    width: 15.15px;
+    height: 3px;
+    background-color:#000;
+    bottom: 50%;
+    top: 50%;
+}
+
+.crossRegister:hover{
+    opacity: 0.5;
+}
+
+.crossRegisterline:first-child {
+    transform: translateY(-50%) rotate(44.76deg);
+}
+
+.crossRegisterline:last-child {
+    transform: translateY(-50%) rotate(-44.76deg);
+}
+
+.registr_title{
+    width: 81px;
+    height: 20px;
+    margin-bottom: 20px;
+}
+
+.registr_title p {
+    font-family: Forum;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-align: center;
+}
+
+.window_labels{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 25px;
+    margin-right: 25px;
+    width: 200px;
+    height: 280px;
+    margin-bottom: 10px;
+}
+
+.SignUpButton{
+    margin-top: 10px;
+    width: 75px;
+    height: 30px;
+    align-items: flex-start;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+    border: 1px solid;
+    background-color: transparent;
+}
+
+.SignUpButton:hover {
+    border: 1px solid transparent;
+    background-color: rgba(187, 148, 95, 1);
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+.already_have_acc{
+    display: flex;
+    justify-content: space-between;
+    width: 164px;
+    height: 12px;
+    margin-left: 25px;
+    align-self: flex-start;
+
+}
+
+.already_have_acc p {
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 400;
+    line-height: 12px;
+    letter-spacing: 0em;
+    text-align: left;
+}
+
+.Login {
+    background: transparent;
+    padding: 0px 0px;
+    width: 32px;
+    height: 12px;
+    font-family: Inter;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 12px;
+    letter-spacing: 1px;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.Login:hover {
+    color: rgba(187, 148, 95, 1);
+}
 
 .item {
     text-decoration: none;

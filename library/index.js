@@ -386,7 +386,6 @@ window.onload = (function () {
 
             const dropMenu = document.querySelector(".dropMenu");
             const icon = document.querySelector(".icon");
-            const logInRegister = document.querySelector(".LogIn_Register");
             let profile = document.querySelector(".profile");
             
             
@@ -394,39 +393,55 @@ window.onload = (function () {
                 event.inDropMenu = true;
                 dropMenu.classList.add("dropMenu_ON");
                 if (event.InMenu = true) {
-                document.querySelector(".menu").classList.remove("menu_ON")
-                document.body.style.overflowY = 'visible'};
+                document.querySelector(".menu").classList.remove("menu_ON")};
             });
-        
-            /*forClose.addEventListener("click", () => {
-                forMenu.classList.remove("menu_ON");
-                document.body.style.overflowY = 'visible';
-            });
-        
-            if (window.innerWidth <= 1024) {
-                for (let i = 0; i < forLinks.length; i += 1) {
-                    forLinks[i].addEventListener("click", () => {
-                        forMenu.classList.remove("menu_ON");
-                        document.body.style.overflowY = 'visible';
-                    })
-                }
-            }
-            */
+    
         
             document.body.addEventListener("click", event => {
 
                 const outMenu = event.composedPath().includes(dropMenu);
-        
                 if (! outMenu) {
                 document.querySelector(".dropMenu").classList.remove("dropMenu_ON")
                 }
-
-
             });
-        
+
+            /*modal_Register*/
+
+            const registerInDropMenu = document.querySelector(".register");
+            const blackBox = document.querySelector(".black_box");
+            const modalRegisterMenu = document.querySelector(".modalWindowRegister");
+            const signUpButtonDigitalCard = document.querySelector(".signUpButton");
+            const crossRegister = document.querySelector(".crossRegister");
+
+            registerInDropMenu.addEventListener("click", (event) => {
+                modalRegisterMenu.classList.add("modal_ON");
+                blackBox.classList.add("modal_ON");}
+            )
 
 
+            blackBox.addEventListener("click", event => {
+
+                const outModalRegister = event.composedPath().includes(modalRegisterMenu);
+                if (! outModalRegister) {
+                modalRegisterMenu.classList.remove("modal_ON");
+                blackBox.classList.remove("modal_ON");
+            }
+            })
 
 
+            signUpButtonDigitalCard.addEventListener("click", (event) => {
+                modalRegisterMenu.classList.add("modal_ON");
+                blackBox.classList.add("modal_ON");
+            })
+
+            crossRegister.addEventListener("click", () => {
+                modalRegisterMenu.classList.remove("modal_ON");
+                blackBox.classList.remove("modal_ON");
+            })
+
+            /*Ограничения на поля модального окна register*/
+            let SignButton = document.querySelector(".SignUpButton");
+
+       
 
 }());
