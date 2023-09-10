@@ -382,7 +382,7 @@ window.onload = (function () {
         })
 
 
-        /* DropMenu */
+        /* DropMenu до регистрации/атворизации*/
 
             const dropMenu = document.querySelector(".dropMenu");
             const icon = document.querySelector(".icon");
@@ -412,12 +412,20 @@ window.onload = (function () {
             const modalRegisterMenu = document.querySelector(".modalWindowRegister");
             const signUpButtonDigitalCard = document.querySelector(".signUpButton");
             const crossRegister = document.querySelector(".crossRegister");
+            const loginInRegisterMenu = document.querySelector(".Login");
 
             registerInDropMenu.addEventListener("click", (event) => {
                 modalRegisterMenu.classList.add("modal_ON");
                 blackBox.classList.add("modal_ON");}
             )
 
+            loginInRegisterMenu.addEventListener("click", event => {
+                modalRegisterMenu.classList.remove("modal_ON");
+                blackBox.classList.remove("modal_ON");
+
+                modalLogInMenu.classList.add("modal_ON");
+                blackBox2.classList.add("modal_ON");
+            })
 
             blackBox.addEventListener("click", event => {
 
@@ -438,7 +446,52 @@ window.onload = (function () {
                 modalRegisterMenu.classList.remove("modal_ON");
                 blackBox.classList.remove("modal_ON");
             })
+            /* end modal_Register*/
+            /* start modal LOGIN */
 
+            const blackBox2 = document.querySelector(".black_box_WindowLogin");
+            const modalLogInMenu = document.querySelector(".modalWindowLogIn");
+            const logInButtonDigitalCard = document.querySelector(".logInButton");
+            const crossLogin = document.querySelector(".crossLog");
+            const loginInDropMenu = document.querySelector(".Log_In");
+            const registerInLogMenu = document.querySelector(".register_pl");
+
+            loginInDropMenu.addEventListener("click", (event) => {
+                modalLogInMenu.classList.add("modal_ON");
+                blackBox2.classList.add("modal_ON");}
+            )
+
+            registerInLogMenu.addEventListener("click", event => {
+                modalLogInMenu.classList.remove("modal_ON");
+                blackBox2.classList.remove("modal_ON");
+
+                modalRegisterMenu.classList.add("modal_ON");
+                blackBox.classList.add("modal_ON");
+            })
+
+
+            blackBox2.addEventListener("click", event => {
+
+                const outModalLogin = event.composedPath().includes(modalLogInMenu);
+                if (! outModalLogin) {
+                 modalLogInMenu.classList.remove("modal_ON");
+                blackBox2.classList.remove("modal_ON");
+            }
+            })
+
+
+            logInButtonDigitalCard.addEventListener("click", (event) => {
+                modalLogInMenu.classList.add("modal_ON");
+                blackBox2.classList.add("modal_ON");
+            })
+
+            crossLogin.addEventListener("click", () => {
+                modalLogInMenu.classList.remove("modal_ON");
+                blackBox2.classList.remove("modal_ON");
+            })
+
+
+            /* end modal LOGIN */
             /*Сохранение данных в localstorage*/
 
             const form = document.querySelector(".modalWindowRegister");
@@ -559,6 +612,16 @@ window.onload = (function () {
 
             let logo_foricon = first_char + second_char;
             icon.textContent = logo_foricon;       
+            }
+
+            /* ЕСЛИ АВТОРИЗАЦИИ НЕТ */
+            else{
+                const buy_buttons = document.querySelectorAll(".buy");
+                for (let i = 0; i < buy_buttons.length; i ++)
+                buy_buttons[i].addEventListener("click", () => {
+                modalLogInMenu.classList.add("modal_ON");
+                blackBox2.classList.add("modal_ON");
+                })
             }
             
 
