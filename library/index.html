@@ -15,11 +15,15 @@
 
 <body>
     <div class="wrapper">
+
         <header>
             <div class="header_box">
+
+            
                 <div class="BPL">
                     <h1>Brooklyn&nbsp;Public&nbsp;Library</h1>
                 </div>
+                
                 <nav class="menu">
                     <ul class="list">
                         <li class="line"><a class="item" href="#about">About</a></li>
@@ -33,15 +37,109 @@
                         <span class="cross_line"></span>
                 </div>
                 </nav>
-                <div class="icon"></div>
-            <div class="burger">
-                    <span class="burger_line1"></span>
-                    <span class="burger_line2"></span>
-                    <span class="burger_line3"></span>
-            </div>
+                <div class="icon">
+                    <div class="dropMenu profil_no_Auth">
+                        <div class="profile">
+                            <p class="profile">Profile</p>
+                         </div>
+                        <div class="line_underProfile"></div>
+                        <div class="LogIn_Register">
+                            <button class="Log_In">Log In</button>
+                            <button class="register">Register</button>
+                        </div>
+                    </div>
+                </div>
+
+                
+
+                <div class="burger">
+                        <span class="burger_line1"></span>
+                        <span class="burger_line2"></span>
+                        <span class="burger_line3"></span>
+                </div>
+
             </div>
         </header>
         <main>
+
+            <div class="black_box"></div>
+            <div class="box_modal">
+            <form class="modalWindowRegister">
+                <div class="crossRegister">
+                    <span class="crossRegisterline"></span>
+                    <span class="crossRegisterline"></span>
+                </div>
+                <div class="registr_title">
+                    <p>REGISTER</p>
+                </div>
+                <div class="window_labels">
+                    <div class="labels_register first_name">
+                        <p>First name</p>
+                        <input required class="register_square" type="text" name="first_n">
+                    </div>
+                    <div class="labels_register last_name">
+                        <p>Last name</p>
+                        <input required class="register_square" type="text" name="last_n">
+
+                    </div>
+                    <div class="labels_register email">
+                        <p>E-mail</p>
+                        <input required class="register_square" type="email" name="mail">
+                        <span class="error">Format: yours@mail.ru</span>
+                    </div>
+                    <div class="labels_register password">
+                        <p>Password</p>
+                        <input minlength="8" class="register_square" type="numeric" required name="pass">
+                        <span class="error">Use more than 8 symbols</span>
+                    </div>
+                    <input class="SignUpButton" type="submit" value="Sign Up">
+                </div>
+
+                <div class="already_have_acc">
+                    <div class="text_already">
+                        <p>Already have an account?</p>
+                    </div>
+                    <button class="Login">Login</button>
+                </div>
+            </form>
+            </div>
+
+
+            <div class="black_box_WindowLogin"></div>
+            <div class="box_modal_WindowLogin">
+            <form class="modalWindowLogIn">
+                <div class="crossLog">
+                    <span class="crossLogline"></span>
+                    <span class="crossLogline"></span>
+                </div>
+                <div class="registr_title">
+                    <p>LOGIN</p>
+                </div>
+                <div class="window_two_inputs">
+                    <div class="labels_register login">
+                        <p>&nbsp;Email&nbsp;or&nbsp;readers&nbsp;card</p>
+                        <input required class="register_square" type="text" name="login_log">
+                    </div>
+                    <div class="labels_register passw_log">
+                        <p>Password</p>
+                        <input required class="register_square" type="text" name="passw_log" minlength="8">
+                        <span class="error">Use more than 8 symbols</span>
+                    </div>
+                   
+                    <input class="LogInButton" type="submit" value="Log In">
+                </div>
+
+                <div class="already_have_acc">
+                    <div class="text_already">
+                        <p>Don’t have an account?</p>
+                    </div>
+                    <button class="register_pl">Register</button>
+                </div>
+            </form>
+            </div>
+
+
+
             <div class="gradient"></div>
             <div class="welcome_block">
                 <div class="welcome_text">
@@ -202,7 +300,7 @@
                             <p class="about_b">A timely and revelatory new biography of Queen Elizabeth (and her family)
                                 exploring how the Windsors have evolved and thrived as the modern world has changed
                                 around them.</p>
-                            <button disabled class="buy" type="button">Buy</button>
+                            <button class="buy" type="button">Buy</button>
                             <div class="image_book_4"></div>
                             <div class="image_book_4_spr display_none"></div>
                             <div class="image_book_4_sum display_none"></div>
@@ -403,18 +501,18 @@
                 <div class="two_cards">
                     <div class="find_card">
                         <p class="find_library">Find&nbsp;your&nbsp;Library&nbsp;card&nbsp;</p>
-                        <div class="form_library">
+                        <form class="form_library">
                             <div class="beige_box">
                                 <p class="br_p_l">Brooklyn Public Library</p>
                                 <label class="card">
-                                    <input class="input" type="text" placeholder="Reader's name">
+                                    <input class="input readersName" type="text" placeholder="Reader's name" name="readersName">
                                 </label>
                                 <label class="card">
-                                    <input class="input" type="number" placeholder="Card number">
+                                    <input class="input cardReadersNumb" type="text" placeholder="Card number" name="cardReadersNumb">
                                 </label>
                             </div>
-                            <button class="check_card" type="button">Check&nbsp;the&nbsp;card&nbsp;</button>
-                        </div>
+                            <button class="check_card" type="submit">Check&nbsp;the&nbsp;card&nbsp;</button>
+                        </form>
                     </div>
 
                     <div class="get_a_card">
@@ -425,10 +523,11 @@
                             <p class="ywba">You will be able to see a reader card after logging into account or you can
                                 register a new account</p>
                         </div>
-                        <div class="two_buttons"><button class="for_sign_log" type="button">Sign Up</button><button
-                                class="for_sign_log" type="button">Log In</button></div>
+                        <div class="two_buttons"><button class="for_sign_log signUpButton" type="button">Sign Up</button>
+                            <button class="for_sign_log logInButton" type="button">Log In</button></div>
+                            <button class="for_sign_log for_profile letsprofile" type="button">Profile</button>
+                        </div>
                     </div>
-                </div>
             </div>
         </main>
         <footer>
@@ -463,8 +562,8 @@
             </div>
         </footer>
     </div>
+    </div>
     <script src="index.js"></script>
-    <script src="burger.js"></script>
 </body>
 
 </html>
