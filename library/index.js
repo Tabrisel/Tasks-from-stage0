@@ -504,7 +504,6 @@ window.onload = (function () {
 
             function dataFunction(event) {
             
-            event.preventDefault();
 
             const data_values = {
                 "firstName": first_name.value,
@@ -512,9 +511,9 @@ window.onload = (function () {
                 "e_mail": mail.value,
                 "password": password.value,
                 "ownBooks": "0",
-                "registerStatus" : "true",
                 "authorizeStatus" : "true",
                 "Visits" : "1",
+                "BuyLibraryCard" : "No",
             }
 
             let cardnumb = Math.random().toString(16).slice(-9);
@@ -552,12 +551,16 @@ window.onload = (function () {
             let secondchar = login["lastName"][0];
             let logo_foricon = firstchar + secondchar;
             icon.textContent = logo_foricon;
+
+            document.querySelector(".icons_profile").classList.add("icons_ON");
+            document.querySelector(".visits").innerHTML = visits;
+            document.querySelector(".ownBookss").innerHTML = ownBooks;
             
         }
 
             form.addEventListener("submit", dataFunction);
 
-            /*Проверяем есть ли у кого-либо из пользователей статус авторизации*/
+            /*Проверяем есть ли у кого-либо из пользователей статус авторизации и пр*/
 
             let valueParsed;
             let card_Registered;
@@ -566,6 +569,13 @@ window.onload = (function () {
             let first_char;
             let second_char;
             let readers_name;
+            let BuyCard;
+            let email;
+            let passw;
+            let ownBooks;
+            let visits;
+            let fName;
+            let lName;
             const lengthForStorage = localStorage.length;
             for (let i = 0; i < lengthForStorage; i++) {
                 let value = localStorage.getItem(localStorage.key(i));
@@ -576,11 +586,19 @@ window.onload = (function () {
                 authorize = authorize_status;
                 first_char = valueParsed["firstName"][0];
                 second_char = valueParsed["lastName"][0];
+                fName = valueParsed["firstName"];
+                lName = valueParsed["lastName"];
                 login_Registered = first_char + " " + second_char;
+                BuyCard = valueParsed["BuyLibraryCard"];
+                email = valueParsed["e_mail"];
+                passw = valueParsed["password"];
+                ownBooks = valueParsed["ownBooks"];
+                visits = valueParsed["Visits"];
                 }
             }
 
-            console.log(card_Registered, authorize);
+  
+            console.log(card_Registered, authorize, BuyCard, ownBooks, email, lName, fName);
 
             /*Если жертва есть и она не разлогинилась - меняем внешний вид как при авторизации*/
             if (authorize === "true") {
@@ -593,6 +611,9 @@ window.onload = (function () {
             document.querySelector(".ywba").innerHTML = "With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.";
             document.querySelector(".get_a_card").style="justify-content: normal";
             document.querySelector(".for_profile").classList.remove("for_profile");
+            document.querySelector(".icons_profile").classList.add("icons_ON");
+            document.querySelector(".visits").innerHTML = visits;
+            document.querySelector(".ownBookss").innerHTML = ownBooks;
 
             /* присваиваем значения из хранилища  - номер карточки*/
             let card = card_Registered;
@@ -611,8 +632,69 @@ window.onload = (function () {
             card_number.classList.add(".cardReadersNumb_off");
 
             let logo_foricon = first_char + second_char;
-            icon.textContent = logo_foricon;       
+            icon.textContent = logo_foricon;    
+            
+            /* включаем возможность покупки libraryCard */
+            const blackBoxWindowBuyLibrary = document.querySelector(".black3box");
+            const windowBuyLibrary = document.querySelector(".WindowBuyCard");
+
+            const buy_buttons = document.querySelectorAll(".buy");
+            for (let i = 0; i < buy_buttons.length; i ++)
+            buy_buttons[i].addEventListener("click", () => {
+            blackBoxWindowBuyLibrary.classList.add("modal_ON");
+            windowBuyLibrary.classList.add("modal_ON");
+            })
+
+            /* если человек нажал submit -> купил карту = присваиваем значение покупки карты 
+            теперь у нас BuyLibraryCard = true */
+
+            const form2 = document.querySelector(".WindowBuyCard");
+            form2.addEventListener("submit", () => {
+                BuyCard = "Yes";
+                const data_values2 = {
+                    "firstName": lName,
+                    "lastName": fName,
+                    "e_mail": email,
+                    "password": passw,
+                    "ownBooks": ownBooks,
+                    "authorizeStatus" : authorize,
+                    "Visits" : visits,
+                    "BuyLibraryCard" : BuyCard,
+                }
+                localStorage.setItem(`${card_Registered}`, JSON.stringify(data_values2));
+
+            })
+
+            /* добавляем события для закрытия окошка BuyLibraryCard */
+            
+        
+            const crossbuyCard = document.querySelector(".crossBuyCard");
+
+            blackBoxWindowBuyLibrary.addEventListener("click", (event) => {
+
+                const outModalBuyCard = event.composedPath().includes(windowBuyLibrary);
+                if (! outModalBuyCard) {
+                blackBoxWindowBuyLibrary.classList.remove("modal_ON");
+                windowBuyLibrary.classList.remove("modal_ON");
             }
+            })
+
+            crossbuyCard.addEventListener("click", () => {
+                blackBoxWindowBuyLibrary.classList.remove("modal_ON");
+                windowBuyLibrary.classList.remove("modal_ON");
+            })
+
+
+            /*Если у человека куплена карта - ее больше не показываем и даем покупать книги*/
+            if (BuyCard === "Yes") {const buy_buttons = document.querySelectorAll(".buy");
+            for (let i = 0; i < buy_buttons.length; i ++)
+            buy_buttons[i].addEventListener("click", (event) => {
+                blackBoxWindowBuyLibrary.classList.remove("modal_ON");
+                windowBuyLibrary.classList.remove("modal_ON");
+            })}
+
+
+    }
 
             /* ЕСЛИ АВТОРИЗАЦИИ НЕТ */
             else{
@@ -622,6 +704,12 @@ window.onload = (function () {
                 modalLogInMenu.classList.add("modal_ON");
                 blackBox2.classList.add("modal_ON");
                 })
+
+
+                /* скрипт на проверку 16 цирф в банковской карте */
+                let bankCardNumber = document.querySelector(".BankCardNumber");
+                
+
             }
             
 
