@@ -439,9 +439,162 @@ window.onload = (function () {
                 blackBox.classList.remove("modal_ON");
             })
 
-            /*Ограничения на поля модального окна register*/
-            let SignButton = document.querySelector(".SignUpButton");
+            /*Сохранение данных в localstorage*/
 
-       
+            const form = document.querySelector(".modalWindowRegister");
+            let first_name = form.querySelector('[name="first_n"]');
+            let last_name = document.querySelector('[name="last_n"]');;
+            let mail = document.querySelector('[name="mail"]');
+            let password = document.querySelector('[name="pass"]');
+            let cardNumber;
+            let authorize_status = false;
+
+            function dataFunction(event) {
+            
+            event.preventDefault();
+
+            const data_values = {
+                "firstName": first_name.value,
+                "lastName": last_name.value,
+                "e_mail": mail.value,
+                "password": password.value,
+                "ownBooks": "0",
+                "registerStatus" : "true",
+                "authorizeStatus" : "true",
+                "Visits" : "1",
+            }
+
+            let cardnumb = Math.random().toString(16).slice(-9);
+            let cardNumber = cardnumb.toUpperCase();
+            localStorage.setItem(`${cardNumber}`, JSON.stringify(data_values));
+
+            /*Меняем внешний вид при первичной регистрации*/
+            icon.classList.add("icon_after_registr");
+            document.querySelector(".check_card").classList.add("check_card_after_registr");
+            document.querySelector(".two_buttons").style="display:none";
+            document.querySelector(".get_arc").innerHTML = "Visit your profile";
+            document.querySelector(".ywba").innerHTML = "With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.";
+            document.querySelector(".get_a_card").style="justify-content: normal";
+            document.querySelector(".for_profile").classList.remove("for_profile");
+
+            let card = cardNumber;
+            let card_number = document.querySelector(".cardReadersNumb");
+
+            card_number.setAttribute("readonly", "");
+            card_number.removeAttribute("placeholder");
+            card_number.setAttribute("placeholder", card);
+            card_number.classList.add(".cardReadersNumb_off");
+
+            let login = JSON.parse(window.localStorage[card]);
+            let readers_name = document.querySelector(".readersName");
+            let loginReady = login["firstName"] + " " + login["lastName"];
+
+            readers_name.setAttribute("readonly", "");
+            readers_name.removeAttribute("placeholder");
+            readers_name.setAttribute("placeholder", loginReady);
+            card_number.classList.add(".cardReadersNumb_off");
+
+
+            let firstchar = login["firstName"][0];
+            let secondchar = login["lastName"][0];
+            let logo_foricon = firstchar + secondchar;
+            icon.textContent = logo_foricon;
+            
+        }
+
+            form.addEventListener("submit", dataFunction);
+
+            /*Проверяем есть ли у кого-либо из пользователей статус авторизации*/
+
+            let valueParsed;
+            let card_Registered;
+            let authorize;
+            let login_Registered;
+            let first_char;
+            let second_char;
+            let readers_name;
+            const lengthForStorage = localStorage.length;
+            for (let i = 0; i < lengthForStorage; i++) {
+                let value = localStorage.getItem(localStorage.key(i));
+                valueParsed = JSON.parse(value);
+                authorize_status = valueParsed["authorizeStatus"];
+                if (authorize_status == "true") {
+                card_Registered = localStorage.key(i);
+                authorize = authorize_status;
+                first_char = valueParsed["firstName"][0];
+                second_char = valueParsed["lastName"][0];
+                login_Registered = first_char + " " + second_char;
+                }
+            }
+
+            console.log(card_Registered, authorize);
+
+            /*Если жертва есть и она не разлогинилась - меняем внешний вид как при авторизации*/
+            if (authorize === "true") {
+
+            /*стандартные изменения*/
+                icon.classList.add("icon_after_registr");
+            document.querySelector(".check_card").classList.add("check_card_after_registr");
+            document.querySelector(".two_buttons").style="display:none";
+            document.querySelector(".get_arc").innerHTML = "Visit your profile";
+            document.querySelector(".ywba").innerHTML = "With a digital library card you get free access to the Library’s wide array of digital resources including e-books, databases, educational resources, and more.";
+            document.querySelector(".get_a_card").style="justify-content: normal";
+            document.querySelector(".for_profile").classList.remove("for_profile");
+
+            /* присваиваем значения из хранилища  - номер карточки*/
+            let card = card_Registered;
+            let card_number = document.querySelector(".cardReadersNumb");
+
+            card_number.setAttribute("readonly", "");
+            card_number.removeAttribute("placeholder");
+            card_number.setAttribute("placeholder", card);
+            card_number.classList.add(".cardReadersNumb_off");
+
+            /* присваиваем значения из хранилища  - имена*/
+            readers_name = document.querySelector(".readersName");
+            readers_name.setAttribute("readonly", "");
+            readers_name.removeAttribute("placeholder");
+            readers_name.setAttribute("placeholder", login_Registered);
+            card_number.classList.add(".cardReadersNumb_off");
+
+            let logo_foricon = first_char + second_char;
+            icon.textContent = logo_foricon;       
+            }
+            
+
+     
+
+            
+            /*
+            let card = window.localStorage.key(localStorage.length-1);
+            let data_status = JSON.parse(window.localStorage[card]);
+            let authorize_status = data_status["authorizeStatus"];
+            if (authorize_status) {
+                icon.classList.add("icon_after_registr");
+            document.querySelector(".check_card").classList.add("check_card_after_registr");
+
+            let card = window.localStorage.key(localStorage.length-1);
+            let card_number = document.querySelector(".cardReadersNumb");
+
+            card_number.setAttribute("readonly", "");
+            card_number.removeAttribute("placeholder");
+            card_number.setAttribute("placeholder", card);
+            card_number.classList.add(".cardReadersNumb_off");
+
+            let login = JSON.parse(window.localStorage[card]);
+            let readers_name = document.querySelector(".readersName");
+            let loginReady = login["firstName"] + " " + login["lastName"];
+            let firstchar = login["firstName"][0];
+            let secondchar = login["lastName"][0];
+            let logo_foricon = firstchar + secondchar;
+
+
+            readers_name.setAttribute("readonly", "");
+            readers_name.removeAttribute("placeholder");
+            readers_name.setAttribute("placeholder", loginReady);
+            card_number.classList.add(".cardReadersNumb_off");
+            icon.textContent = logo_foricon;
+            }
+            */
 
 }());

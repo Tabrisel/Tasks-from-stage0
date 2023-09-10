@@ -66,7 +66,7 @@
 
             <div class="black_box"></div>
             <div class="box_modal">
-            <div class="modalWindowRegister">
+            <form class="modalWindowRegister">
                 <div class="crossRegister">
                     <span class="crossRegisterline"></span>
                     <span class="crossRegisterline"></span>
@@ -77,30 +77,24 @@
                 <div class="window_labels">
                     <div class="labels_register first_name">
                         <p>First name</p>
-                        <label>
-                            <input required class="register_square" type="text">
-                        </label>
+                        <input required class="register_square" type="text" name="first_n">
                     </div>
                     <div class="labels_register last_name">
                         <p>Last name</p>
-                        <label>
-                            <input required class="register_square" type="text">
-                        </label>
+                        <input required class="register_square" type="text" name="last_n">
+
                     </div>
                     <div class="labels_register email">
                         <p>E-mail</p>
-                        <label>
-                            <input required class="register_square" type="email" placeholder="E-mail">
-                        </label>
+                        <input required class="register_square" type="email" name="mail">
+                        <span class="error">Format: yours@mail.ru</span>
                     </div>
                     <div class="labels_register password">
                         <p>Password</p>
-                        <label>
-                            <input required class="register_square" type="password" required
-                            minlength="8">
-                        </label>
+                        <input minlength="8" class="register_square" type="numeric" required name="pass">
+                        <span class="error">Use more than 8 symbols</span>
                     </div>
-                    <button class="SignUpButton">Sign Up</button>
+                    <input class="SignUpButton" type="submit" value="Sign Up">
                 </div>
 
                 <div class="already_have_acc">
@@ -109,7 +103,7 @@
                     </div>
                     <button class="Login">Login</button>
                 </div>
-            </div>
+            </form>
             </div>
 
 
@@ -475,18 +469,18 @@
                 <div class="two_cards">
                     <div class="find_card">
                         <p class="find_library">Find&nbsp;your&nbsp;Library&nbsp;card&nbsp;</p>
-                        <div class="form_library">
+                        <form class="form_library">
                             <div class="beige_box">
                                 <p class="br_p_l">Brooklyn Public Library</p>
                                 <label class="card">
-                                    <input class="input" type="text" placeholder="Reader's name">
+                                    <input class="input readersName" type="text" placeholder="Reader's name" name="readersName">
                                 </label>
                                 <label class="card">
-                                    <input class="input" type="number" placeholder="Card number">
+                                    <input class="input cardReadersNumb" type="text" placeholder="Card number" name="cardReadersNumb">
                                 </label>
                             </div>
-                            <button class="check_card" type="button">Check&nbsp;the&nbsp;card&nbsp;</button>
-                        </div>
+                            <button class="check_card" type="submit">Check&nbsp;the&nbsp;card&nbsp;</button>
+                        </form>
                     </div>
 
                     <div class="get_a_card">
@@ -497,10 +491,11 @@
                             <p class="ywba">You will be able to see a reader card after logging into account or you can
                                 register a new account</p>
                         </div>
-                        <div class="two_buttons"><button class="for_sign_log signUpButton" type="button">Sign Up</button><button
-                                class="for_sign_log" type="button">Log In</button></div>
+                        <div class="two_buttons"><button class="for_sign_log signUpButton" type="button">Sign Up</button>
+                            <button class="for_sign_log" type="button">Log In</button></div>
+                            <button class="for_sign_log for_profile letsprofile" type="button">Profile</button>
+                        </div>
                     </div>
-                </div>
             </div>
         </main>
         <footer>

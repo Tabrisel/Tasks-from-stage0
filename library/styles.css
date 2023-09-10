@@ -362,8 +362,32 @@ button .register {
     margin-bottom: 10px;
 }
 
+.error {
+    background-color: #e7971f11;
+    width: 200px;
+    height: 20px;
+    position: absolute;
+    color: red;
+    text-align: left;
+    font-size: 12px;
+    margin-top: 50px;
+    display: none;
+  }
+
+  input:invalid:not(:placeholder-shown) + .error {
+    display: block;
+  }
+
+  input:invalid:not(:placeholder-shown) {
+    border-color: red;
+  }
+
+
+
 .SignUpButton{
     margin-top: 10px;
+    margin: 0px 0px;
+    border-radius: 0;
     width: 75px;
     height: 30px;
     align-items: flex-start;
@@ -441,6 +465,17 @@ button .register {
     margin-top: 31px;
     margin-bottom: 31px;
 }
+
+.icon_after_registr {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: none;
+    background-color: #9c7d4f;
+    border-radius: 50%;
+    color: white;  
+}
+
 
 section {
     text-align: center;
@@ -1701,6 +1736,15 @@ label {
     transition: background-color 1s;
 }
 
+.check_card_after_registr {
+    display: none;
+}
+
+.cardReadersNumb_off{
+    pointer-events: none;
+    background-color: white;
+}
+
 .check_card:hover {
     width: 242px;
     border: 1px solid transparent;
@@ -1832,6 +1876,14 @@ input {
     border: none;
     background-color: rgba(187, 148, 95, 1);
     cursor: pointer;
+}
+
+.for_profile{
+    display: none;
+}
+
+.letsprofile {
+    margin-top: 35px;
 }
 
 /* footer */
