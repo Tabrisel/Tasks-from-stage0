@@ -556,8 +556,11 @@ window.onload = (function () {
             icon.insertAdjacentHTML('beforeend', logo_foricon);
 
             document.querySelector(".icons_profile").classList.add("icons_ON");
-            document.querySelector(".visits").innerHTML = visits;
-            document.querySelector(".ownBookss").innerHTML = ownBooks;
+            let visits_count = document.querySelectorAll(".visits");
+            for(let i =0; i < visits_count.length; i++)
+            { visits_count[i].innerHTML = visits};
+            let books_count = document.querySelectorAll(".ownBookss");
+            for(let i =0; i < visits_count.length; i++) {books_count[i].innerHTML = ownBooks};
             document.querySelector(".icon").setAttribute("title", loginForTitle);
             
         }
@@ -617,8 +620,11 @@ window.onload = (function () {
             document.querySelector(".get_a_card").style="justify-content: normal";
             document.querySelector(".for_profile").classList.remove("for_profile");
             document.querySelector(".icons_profile").classList.add("icons_ON");
-            document.querySelector(".visits").innerHTML = visits;
-            document.querySelector(".ownBookss").innerHTML = ownBooks;
+            let visits_count = document.querySelectorAll(".visits");
+            for(let i =0; i < visits_count.length; i++)
+            { visits_count[i].innerHTML = visits};
+            let books_count = document.querySelectorAll(".ownBookss");
+            for(let i =0; i < visits_count.length; i++) {books_count[i].innerHTML = ownBooks};
             document.querySelector(".icon").setAttribute("title", loginForTitle);
 
             /* присваиваем значения из хранилища  - номер карточки*/
@@ -712,6 +718,56 @@ window.onload = (function () {
                 blackBoxWindowBuyLibrary.classList.remove("modal_ON");
                 windowBuyLibrary.classList.remove("modal_ON");
             })}
+
+            /*Присвоим данные для ProfileCard*/
+
+            const pictureID = document.querySelector(".avatarUser");
+            const fullName = document.querySelector(".allUserName");
+            const abonement = document.querySelector(".NumberOfAuthorize");
+            const copyIcon = document.querySelector(".copyIcon");
+            const profileButton = document.querySelector(".my_profile");
+            const blBoxProfileModal = document.querySelector(".blBoxProfileModal");
+            const crossProfileCard = document.querySelector(".crossProfileCard");
+            const WindowProfileCard = document.querySelector(".profileModalWindow");
+            const buttonVisit = document.querySelector(".letsprofile");
+
+
+            pictureID.textContent = logo_foricon;
+            fullName.textContent = loginForTitle;
+            abonement.textContent = card;
+            
+            /* добавим возможность сохранять карту в буфер обмена*/
+            copyIcon.addEventListener('click', function(e) {
+                navigator.clipboard.writeText(card);
+             });
+
+            /*добавим возможность открывать profile Card */
+            profileButton.addEventListener("click", function() {
+                WindowProfileCard.classList.add("modal_ON");
+                blBoxProfileModal.classList.add("modal_ON");
+            })
+
+            buttonVisit.addEventListener("click", function() {
+                WindowProfileCard.classList.add("modal_ON");
+                blBoxProfileModal.classList.add("modal_ON");
+            })
+
+            blBoxProfileModal.addEventListener("click", event => {
+
+                const outModalProfile = event.composedPath().includes(WindowProfileCard);
+                if (! outModalProfile) {
+                    WindowProfileCard.classList.remove("modal_ON");
+                    blBoxProfileModal.classList.remove("modal_ON");
+                }
+            })
+
+            crossProfileCard.addEventListener("click", () => {
+                WindowProfileCard.classList.remove("modal_ON");
+                blBoxProfileModal.classList.remove("modal_ON");
+            })
+
+
+
 
             /* ЕСЛИ ХОТИМ ВЫЙТИ ИЗ АВТОРИЗАЦИИ */
             const logOutButton = document.querySelector(".LogOut");
