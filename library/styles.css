@@ -170,7 +170,6 @@ header {
     margin-bottom: 5px;
     display: flex;
     justify-content: center;
-    align-items: center;
 }
 
 .profile p {
@@ -284,6 +283,236 @@ button .Log_In {
 }
 
 /* end DropMenu */
+
+/*ModalProfile*/
+.blBoxProfileModal{
+    transition: all .3s;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: #100f0f6b;
+    z-index: 11;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s, visibility .3s;
+}
+
+
+.boxProfileModal{
+    visibility: hidden;
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 12;
+}
+
+
+.profileModalWindow{
+    width: 600px;
+    height: 400px;
+    transition: all .3s;
+    transform: scale(0.5);
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    justify-content: none;
+    align-items: center;
+    display: flex;
+    background-color: #FFFFFF;
+    z-index: 13;
+    box-shadow: 4px 4px 35px -4px rgba(34, 60, 80, 0.2);
+}
+
+.blackLeft {
+    width: 170px;
+    height: 403px;
+    background-color: #0C0C0E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    
+}
+
+.whiteData {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    width: 430px;
+    height: 403px;
+    background-color: #FFFFFF;
+}
+
+.boxAvatarLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 120px;
+    height: 125px;
+    gap: 15px;
+}
+
+.copyIcon {
+    width: 13.31px;
+    height: 12px;
+    background-image: url(svg/icon_copy.svg);
+    background-repeat: no-repeat;
+    margin-left: 15px;
+    text-align: center;
+}
+
+.avatarUser{
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80px;
+    height: 80px;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #BB945F;
+}
+
+.allUserName {
+    width: 120px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: #FFFFFF;
+
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+
+}
+
+.title_ProfileCard{
+    width: 207px;
+    height: 20px;
+    font-family: Forum;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.02em;
+    text-align: center;
+    color:#000000;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: 20px;
+    text-transform: uppercase;
+
+}
+
+.iconsForProfileCard {
+    width: 237px;
+    height: 81px;
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+}
+
+.rentedBooks {
+    width: 350px;
+    height: 100px;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 2px;
+    text-align: left;
+    color: #0C0C0E;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+
+.cardProfileCard{
+    display: flex;
+    align-items: center;
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #0C0C0E;
+    margin-left: 20px;
+}
+
+.textProfC{
+    width: 124px;
+    height: 20px;
+}
+
+.NumberOfAuthorize{
+    font-family: Inter;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #BB945F;
+    width: 113px;
+    height: 20px;
+    margin-left: 15px;
+}
+
+.crossProfileCard {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+}
+
+.copyIcon:hover {
+    scale: 1.2;
+    cursor: pointer;
+}
+
+.crossProfileCard:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}
+
+
+.crossProfileline {
+    position: relative;
+    display: block;
+    position: absolute;
+    width: 15.15px;
+    height: 3px;
+    background-color:#000;
+    bottom: 50%;
+    top: 50%;
+}
+
+
+.crossProfileline:first-child {
+    transform: translateY(-50%) rotate(44.76deg);
+}
+
+.crossProfileline:last-child  {
+    transform: translateY(-50%) rotate(-44.76deg);
+}
+
+/*end ModalProfile*/
 
 /*ModalWindowRegister*/
 .black_box {
@@ -1226,6 +1455,24 @@ h2::after {
 .LogOut {
         background-color: transparent;
     }
+
+.my_profile{
+    background-color: transparent;
+}
+
+.my_profile p {
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: center;
+}
+
+.my_profile:hover {
+    color: rgba(187, 148, 95, 1);
+    text-decoration: underline;
+}
     
 .LogOut p {
         font-family: Inter;
