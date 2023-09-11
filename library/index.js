@@ -394,20 +394,15 @@ window.onload = (function () {
         const dropMenu = document.querySelector(".dropMenu");
             const icon = document.querySelector(".icon");
             let profile = document.querySelector(".profile");
-            let isClick = false;
 
             
             
-            icon.addEventListener("click", () => {
-                isClick = true;
+            icon.addEventListener("click", (event) => {
+                event.isClick = true;
                 dropMenu.classList.toggle("dropMenu_ON");
                 if (event.InMenu = true) {
                 document.querySelector(".menu").classList.remove("menu_ON")};
             });
-
-
-
-
 
 
             /*modal_Register*/
@@ -499,6 +494,7 @@ window.onload = (function () {
 
 
             /* end modal LOGIN */
+
             /*Сохранение данных в localstorage*/
 
             const form = document.querySelector(".modalWindowRegister");
@@ -645,13 +641,19 @@ window.onload = (function () {
             document.querySelector(".name_icon").textContent = logo_foricon;
 
             /*занимаемся блокированием DropMenu после авторизации*/
-
+            icon.addEventListener("click", () => {
+                dropMenu.classList.remove("dropMenu_ON")
+            })
             
             /* добавляем возможность появления другого меню */
-
-
-
-            
+            let dropWithAuth = document.querySelector(".dropWithAuth");
+            icon.addEventListener("click", () => {
+                dropWithAuth.classList.toggle("withAuth_ON");
+                })
+            /* Добавляем изменение в окошечке меню - теперь вместо profile = card_number */
+            let profileForSmallWindow = document.querySelector(".profile_data");
+            profileForSmallWindow.innerHTML = card;
+    
             /* включаем возможность покупки libraryCard */
             const blackBoxWindowBuyLibrary = document.querySelector(".black3box");
             const windowBuyLibrary = document.querySelector(".WindowBuyCard");
@@ -670,8 +672,8 @@ window.onload = (function () {
             form2.addEventListener("submit", () => {
                 BuyCard = "Yes";
                 const data_values2 = {
-                    "firstName": lName,
-                    "lastName": fName,
+                    "firstName": fName,
+                    "lastName": lName,
                     "e_mail": email,
                     "password": passw,
                     "ownBooks": ownBooks,
@@ -711,61 +713,101 @@ window.onload = (function () {
                 windowBuyLibrary.classList.remove("modal_ON");
             })}
 
+            /* ЕСЛИ ХОТИМ ВЫЙТИ ИЗ АВТОРИЗАЦИИ */
+            const logOutButton = document.querySelector(".LogOut");
+            logOutButton.addEventListener("click", () => {
+                
+                    authorize = "false";
+                    const data_values3 = {
+                        "firstName": fName,
+                        "lastName": lName,
+                        "e_mail": email,
+                        "password": passw,
+                        "ownBooks": ownBooks,
+                        "authorizeStatus" : authorize,
+                        "Visits" : visits,
+                        "BuyLibraryCard" : BuyCard,
+                    }
+                    localStorage.setItem(`${card_Registered}`, JSON.stringify(data_values3));
+                    location.reload()         
+            })
 
     }
 
             /* ЕСЛИ АВТОРИЗАЦИИ НЕТ */
-            else{
+        else {
                 const buy_buttons = document.querySelectorAll(".buy");
-                for (let i = 0; i < buy_buttons.length; i ++)
+                for (let i = 0; i < buy_buttons.length; i ++) {
                 buy_buttons[i].addEventListener("click", () => {
                 modalLogInMenu.classList.add("modal_ON");
-                blackBox2.classList.add("modal_ON");
-                })
+                blackBox2.classList.add("modal_ON")})}
 
 
-                /* скрипт на проверку 16 цирф в банковской карте */
-                let bankCardNumber = document.querySelector(".BankCardNumber");
+
+                /* ХОТИМ ВОЙТИ В АККАУНТ */
+
+      
+                
+                let formLog = document.querySelector(".modalWindowLogIn");
+     
+               
+                    let CheckedMailLogoPassw = document.forms.checked.onsubmit = function () {
+                    let mail_logo = this.login_log.value;
+                    let passw_c = this.passw_log.value;
+                   
+
+
+
+
+
+                const lengthForStorage = localStorage.length;
+                for (let i = 0; i < lengthForStorage; i++) {
+                let value = localStorage.getItem(localStorage.key(i));
+                valueParsed = JSON.parse(value);
+                card_Registered = localStorage.key(i);
+                email = valueParsed["e_mail"];
+                pas = valueParsed["password"];
+                visit = +valueParsed["Visits"] + 1;
+                if ((card_Registered == mail_logo)|| ((email == mail_logo))) {
+                if (pas == passw_c) {
+                    const data_values4 = {
+                        "firstName": valueParsed["firstName"],
+                        "lastName": valueParsed["lastName"],
+                        "e_mail": valueParsed["e_mail"],
+                        "password": valueParsed["password"],
+                        "ownBooks": valueParsed["ownBooks"],
+                        "authorizeStatus" : "true",
+                        "Visits" : visit,
+                        "BuyLibraryCard" : valueParsed["BuyLibraryCard"],
+                    }
+                    localStorage.setItem(`${card_Registered}`, JSON.stringify(data_values4));
+                    location.reload();
+                }} else {null}
+
+            }
+        
+        } 
+    
+    }
+
+    
+                    
+
+
+
+                  
+
                 
 
-            }
+
+
+
+
+
 
             
-            
-
-     
-
-            
-            /*
-            let card = window.localStorage.key(localStorage.length-1);
-            let data_status = JSON.parse(window.localStorage[card]);
-            let authorize_status = data_status["authorizeStatus"];
-            if (authorize_status) {
-                icon.classList.add("icon_after_registr");
-            document.querySelector(".check_card").classList.add("check_card_after_registr");
-
-            let card = window.localStorage.key(localStorage.length-1);
-            let card_number = document.querySelector(".cardReadersNumb");
-
-            card_number.setAttribute("readonly", "");
-            card_number.removeAttribute("placeholder");
-            card_number.setAttribute("placeholder", card);
-            card_number.classList.add(".cardReadersNumb_off");
-
-            let login = JSON.parse(window.localStorage[card]);
-            let readers_name = document.querySelector(".readersName");
-            let loginReady = login["firstName"] + " " + login["lastName"];
-            let firstchar = login["firstName"][0];
-            let secondchar = login["lastName"][0];
-            let logo_foricon = firstchar + secondchar;
 
 
-            readers_name.setAttribute("readonly", "");
-            readers_name.removeAttribute("placeholder");
-            readers_name.setAttribute("placeholder", loginReady);
-            card_number.classList.add(".cardReadersNumb_off");
-            icon.textContent = logo_foricon;
-            }
-            */
+          
 
 }());
