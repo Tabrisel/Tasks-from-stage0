@@ -9,8 +9,13 @@ window.onload = (function () {
     forBurger.addEventListener("click", event => {
         forMenu.classList.add("menu_ON");
         event.InMenu = true;
-        document.body.style.overflowY = 'hidden';
+        if (event.inDropMenu = true) {
+            dropMenu.classList.remove("dropMenu_ON");
+            document.body.style.overflowY = 'hidden';
+        }
+
     });
+
 
     forClose.addEventListener("click", () => {
         forMenu.classList.remove("menu_ON");
@@ -33,6 +38,8 @@ window.onload = (function () {
         document.querySelector(".menu").classList.remove("menu_ON")
         document.body.style.overflowY = 'visible'};
     });
+
+    
 
 /* Burger end */
 
@@ -384,26 +391,24 @@ window.onload = (function () {
 
         /* DropMenu до регистрации/атворизации*/
 
-            const dropMenu = document.querySelector(".dropMenu");
+        const dropMenu = document.querySelector(".dropMenu");
             const icon = document.querySelector(".icon");
             let profile = document.querySelector(".profile");
+            let isClick = false;
+
             
             
             icon.addEventListener("click", () => {
-                event.inDropMenu = true;
-                dropMenu.classList.add("dropMenu_ON");
+                isClick = true;
+                dropMenu.classList.toggle("dropMenu_ON");
                 if (event.InMenu = true) {
                 document.querySelector(".menu").classList.remove("menu_ON")};
             });
-    
-        
-            document.body.addEventListener("click", event => {
 
-                const outMenu = event.composedPath().includes(dropMenu);
-                if (! outMenu) {
-                document.querySelector(".dropMenu").classList.remove("dropMenu_ON")
-                }
-            });
+
+
+
+
 
             /*modal_Register*/
 
@@ -416,7 +421,9 @@ window.onload = (function () {
 
             registerInDropMenu.addEventListener("click", (event) => {
                 modalRegisterMenu.classList.add("modal_ON");
-                blackBox.classList.add("modal_ON");}
+                blackBox.classList.add("modal_ON");
+                icon.classList.remove("dropMenu_ON");
+            }
             )
 
             loginInRegisterMenu.addEventListener("click", event => {
@@ -550,11 +557,12 @@ window.onload = (function () {
             let firstchar = login["firstName"][0];
             let secondchar = login["lastName"][0];
             let logo_foricon = firstchar + secondchar;
-            icon.textContent = logo_foricon;
+            icon.insertAdjacentHTML('beforeend', logo_foricon);
 
             document.querySelector(".icons_profile").classList.add("icons_ON");
             document.querySelector(".visits").innerHTML = visits;
             document.querySelector(".ownBookss").innerHTML = ownBooks;
+            document.querySelector(".icon").setAttribute("title", loginForTitle);
             
         }
 
@@ -576,6 +584,7 @@ window.onload = (function () {
             let visits;
             let fName;
             let lName;
+            let loginForTitle;
             const lengthForStorage = localStorage.length;
             for (let i = 0; i < lengthForStorage; i++) {
                 let value = localStorage.getItem(localStorage.key(i));
@@ -588,6 +597,7 @@ window.onload = (function () {
                 second_char = valueParsed["lastName"][0];
                 fName = valueParsed["firstName"];
                 lName = valueParsed["lastName"];
+                loginForTitle = valueParsed["firstName"] + " " + valueParsed["lastName"];
                 login_Registered = first_char + " " + second_char;
                 BuyCard = valueParsed["BuyLibraryCard"];
                 email = valueParsed["e_mail"];
@@ -597,14 +607,13 @@ window.onload = (function () {
                 }
             }
 
-  
-            console.log(card_Registered, authorize, BuyCard, ownBooks, email, lName, fName);
+
 
             /*Если жертва есть и она не разлогинилась - меняем внешний вид как при авторизации*/
             if (authorize === "true") {
 
             /*стандартные изменения*/
-                icon.classList.add("icon_after_registr");
+            icon.classList.add("icon_after_registr");
             document.querySelector(".check_card").classList.add("check_card_after_registr");
             document.querySelector(".two_buttons").style="display:none";
             document.querySelector(".get_arc").innerHTML = "Visit your profile";
@@ -614,6 +623,7 @@ window.onload = (function () {
             document.querySelector(".icons_profile").classList.add("icons_ON");
             document.querySelector(".visits").innerHTML = visits;
             document.querySelector(".ownBookss").innerHTML = ownBooks;
+            document.querySelector(".icon").setAttribute("title", loginForTitle);
 
             /* присваиваем значения из хранилища  - номер карточки*/
             let card = card_Registered;
@@ -632,7 +642,15 @@ window.onload = (function () {
             card_number.classList.add(".cardReadersNumb_off");
 
             let logo_foricon = first_char + second_char;
-            icon.textContent = logo_foricon;    
+            document.querySelector(".name_icon").textContent = logo_foricon;
+
+            /*занимаемся блокированием DropMenu после авторизации*/
+
+            
+            /* добавляем возможность появления другого меню */
+
+
+
             
             /* включаем возможность покупки libraryCard */
             const blackBoxWindowBuyLibrary = document.querySelector(".black3box");
@@ -711,6 +729,8 @@ window.onload = (function () {
                 
 
             }
+
+            
             
 
      
