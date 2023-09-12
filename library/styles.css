@@ -3116,7 +3116,7 @@ footer {
 }
 
 /* media-start */
-@media screen and (max-width: 1440px) {
+@media screen and (max-width: 1439px) {
     .wrapper {
         max-width: 100%;
         margin: 0;
@@ -5052,6 +5052,15 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+
+    .line_for_seasons {
+        max-width: 768px;
+    }
+
+    .aut_text{
+        width: 100px;
+    }
+    
 
     .wrapper {
         height: auto;
