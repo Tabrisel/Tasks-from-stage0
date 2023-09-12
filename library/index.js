@@ -463,6 +463,93 @@ window.onload = (function () {
                 blackBox.classList.remove("modal_ON");
             })
             /* end modal_Register*/
+
+            /* ЕСЛИ ДАННЫЕ В КАРТОЧКЕ СОВПАДУТ С LOCAL STORAGE */
+            let formCheckCard = document.querySelector(".form_library");
+     
+               
+                    let CheckedData = document.forms.checkData.onsubmit = function (event) {
+                    
+                    let full_login = this.readersName.value;
+                    let card_c = this.cardReadersNumb.value;
+                    console.log(full_login)
+                    event.preventDefault();
+                   
+
+                for (let i = 0; i < lengthForStorage; i++) {
+                value = localStorage.getItem(localStorage.key(i));
+                valueParsed = JSON.parse(value);
+                card_Registered = localStorage.key(i);
+                email = valueParsed["e_mail"];
+                visits = valueParsed["Visits"];
+                ownBooks = valueParsed["ownBooks"];
+                LoginAll = valueParsed["firstName"] + " " + valueParsed["lastName"];
+                pas = valueParsed["password"];
+                if ((full_login == LoginAll) && (card_c == card_Registered)) {
+            
+            card = card_Registered;
+            card_number = document.querySelector(".cardReadersNumb");
+            card_number.value = '';
+
+            card_number.setAttribute("readonly", "");
+            card_number.removeAttribute("placeholder");
+            card_number.value = card;
+            card_number.classList.add(".cardReadersNumb_off");
+
+            login = LoginAll;
+            readers_name = document.querySelector(".readersName");
+            readers_name.value = '';
+
+            readers_name.setAttribute("readonly", "");
+            readers_name.removeAttribute("placeholder");
+            readers_name.value = login;
+            card_number.classList.add(".cardReadersNumb_off");
+
+            document.querySelector(".icons_profile").classList.add("icons_ON");
+            let visits_count = document.querySelectorAll(".visits");
+            for(let i =0; i < visits_count.length; i++)
+            { visits_count[i].innerHTML = visits};
+            let books_count = document.querySelectorAll(".ownBookss");
+            for(let i =0; i < visits_count.length; i++) {books_count[i].innerHTML = ownBooks};
+            document.querySelector(".check_card").style.display = "none";
+            document.querySelector(".cardReadersNumb").style.color = "rgba(187, 148, 95, 1)";
+            document.querySelector(".readersName").style.color = "rgba(187, 148, 95, 1)";
+            
+
+            setTimeout(() => {
+            card_number.value = '';
+
+            card_number.removeAttribute("readonly", "");
+            card_number.setAttribute("placeholder", "Card number");
+            card_number.classList.remove(".cardReadersNumb_off");
+
+            readers_name.value = '';
+
+            readers_name.removeAttribute("readonly", "");
+            readers_name.setAttribute("placeholder", "Reader's name" );
+
+            card_number.classList.remove(".cardReadersNumb_off");
+
+            document.querySelector(".icons_profile").classList.remove("icons_ON");
+ 
+            document.querySelector(".check_card").style.display = "block";
+            document.querySelector(".cardReadersNumb").style.color = "#565656";
+            document.querySelector(".readersName").style.color = "#565656";
+
+
+
+
+  },
+  10 * 1000
+             )} else {event.preventDefault()}
+            }
+    }
+
+
+            /* КОНЕЦ ПРО КАРТОЧКУ CHECK THE CARD */
+
+
+
             /* start modal LOGIN */
 
             const blackBox2 = document.querySelector(".black_box_WindowLogin");
@@ -655,7 +742,7 @@ window.onload = (function () {
             readers_name = document.querySelector(".readersName");
             readers_name.setAttribute("readonly", "");
             readers_name.removeAttribute("placeholder");
-            readers_name.setAttribute("placeholder", login_Registered);
+            readers_name.setAttribute("placeholder", loginForTitle);
             card_number.classList.add(".cardReadersNumb_off");
 
             let logo_foricon = first_char + second_char;
@@ -838,10 +925,6 @@ window.onload = (function () {
                     let mail_logo = this.login_log.value;
                     let passw_c = this.passw_log.value;
                    
-
-
-
-
 
                 const lengthForStorage = localStorage.length;
                 for (let i = 0; i < lengthForStorage; i++) {
