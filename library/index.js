@@ -13,6 +13,10 @@ window.onload = (function () {
             dropMenu.classList.remove("dropMenu_ON");
             document.body.style.overflowY = 'hidden';
         }
+        if (event.inDropAuth = true) {
+            document.querySelector(".dropWithAuth").classList.remove("withAuth_ON");
+            document.body.style.overflowY = 'hidden';
+        }
 
     });
 
@@ -398,10 +402,18 @@ window.onload = (function () {
             
             
             icon.addEventListener("click", (event) => {
-                event.isClick = true;
+                event.inDropMenu = true;
                 dropMenu.classList.toggle("dropMenu_ON");
                 if (event.InMenu = true) {
                 document.querySelector(".menu").classList.remove("menu_ON")};
+            });
+
+            document.body.addEventListener("click", event => {
+
+                if (event.inDropMenu) return;
+                if (event.target !== dropMenu) {
+                document.querySelector(".dropMenu").classList.remove("dropMenu_ON");
+                document.body.style.overflowY = 'visible'};
             });
 
 
@@ -653,9 +665,21 @@ window.onload = (function () {
             
             /* добавляем возможность появления другого меню */
             let dropWithAuth = document.querySelector(".dropWithAuth");
-            icon.addEventListener("click", () => {
+            icon.addEventListener("click", event => {
+                event.inDropAuth = true;
                 dropWithAuth.classList.toggle("withAuth_ON");
-                })
+
+                document.body.addEventListener("click", event => {
+
+                    if (event.inDropAuth) return;
+                    if (event.target !== dropWithAuth) {
+                    document.querySelector(".dropWithAuth").classList.remove("withAuth_ON");
+                    document.body.style.overflowY = 'visible'};
+                });
+
+
+            })
+                
             /* Добавляем изменение в окошечке меню - теперь вместо profile = card_number */
             let profileForSmallWindow = document.querySelector(".profile_data");
             profileForSmallWindow.innerHTML = card;
