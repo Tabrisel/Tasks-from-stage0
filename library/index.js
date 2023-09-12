@@ -416,6 +416,8 @@ window.onload = (function () {
                 document.body.style.overflowY = 'visible'};
             });
 
+           
+            document.querySelector(".dropWithAuth").style.top = "80px";
 
             /*modal_Register*/
 
@@ -638,6 +640,7 @@ window.onload = (function () {
             let books_count = document.querySelectorAll(".ownBookss");
             for(let i =0; i < visits_count.length; i++) {books_count[i].innerHTML = ownBooks};
             document.querySelector(".icon").setAttribute("title", loginForTitle);
+            document.querySelector(".dropWithAuth").style.top = "80px";
 
             /* присваиваем значения из хранилища  - номер карточки*/
             let card = card_Registered;
