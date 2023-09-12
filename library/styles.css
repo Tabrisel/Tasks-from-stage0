@@ -660,6 +660,8 @@ button .Log_In {
     border-color: red;
   }
 
+
+
   .error2 {
     background-color: #e7971f11;
     width: 200px;
@@ -2802,7 +2804,7 @@ input {
 
 .input::placeholder {
     color: #8E8E8E;
-    padding-left: 18px;
+    padding-left: 0px;
     padding-top: 6px;
     padding-bottom: 6px;
     font-family: Forum;
@@ -4499,7 +4501,7 @@ footer {
 
     .input::placeholder {
         color: #8E8E8E;
-        padding-left: 18px;
+        padding-left: 0px;
         padding-top: 6px;
         padding-bottom: 6px;
         font-family: Forum;
