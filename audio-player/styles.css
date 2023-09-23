@@ -135,8 +135,8 @@
 }
 
 .main_button {
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     background-color: #8f8d9109;
     display: flex;
@@ -149,12 +149,12 @@
 }
 
 .main_button:hover {
-    scale: 1.2;
+    scale: 1.05;
     transition: all 1s ease;
 }
 
 .main_button_pause{
-    background-color: rgba(174, 255, 0, 0.7);
+    box-shadow: inset 0px 0px 5px rgba(180, 211, 23, 0.727);
 }
 
 .pause {
@@ -176,6 +176,48 @@
     top: 0;
     bottom: 0;
     margin: auto;
+}
+
+.buttons {
+    margin-top: 5%;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btn_Left {
+    padding-bottom: 3px;
+    transform: rotate(-90deg);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(234, 255, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+}
+
+.btn_Right {
+    padding-bottom: 3px;
+    transform: rotate(90deg);
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: rgba(234, 255, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 1s;
+}
+
+.btn_Right:hover, .btn_Left:hover {
+    background-color: rgba(103, 106, 68, 0.7);
+    cursor: pointer;
+    box-shadow: inset 0px 0px 5px rgba(180, 211, 23, 0.727);
 }
 
 .footer {
@@ -217,6 +259,7 @@ a {
     background: url("icons/rs_school_js.svg") center no-repeat;
     width: 100px;
     height: 30px;
+    transition: all 1s;
 }
 
 .user {
@@ -227,6 +270,7 @@ a {
     justify-content: space-between;
     width: 32px;
     height: 30px;
+    transition: all 1s;
 }
 
 .name {
@@ -248,7 +292,7 @@ a {
 
 a:hover {
     opacity: 80%;
-    scale: 1.2;
+    scale: 1.1;
 }
 
 
