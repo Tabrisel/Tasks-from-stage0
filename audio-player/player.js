@@ -50,6 +50,16 @@ function toPrevSong() {
     playAudio();
 }
 
+audio.onended = function() {
+    currentSong = currentSong + 1;
+    if (currentSong > titles.length - 1) {currentSong = 0}
+    titleCurrent.textContent = titles[currentSong];
+    authorCurrent.textContent = authors[currentSong];
+    picCurrent.src = `${folderPic[currentSong]}`;
+    audio.src = `${folderPaths[currentSong]}`;
+    playAudio();
+}
+
 /*function pauseAudio() {
     if (isPlay = true) {
     audio.pause();
