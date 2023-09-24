@@ -69,9 +69,9 @@
 }
 
 .line {
+    margin-top: 10%;
     background-color: transparent;
     width: 100%;
-    margin-top: 10%;
     height: 0.5%;
     opacity: 50%;
     z-index: 10;
@@ -345,13 +345,30 @@ a:hover {
     height: 7px;
     border-radius: 8px;
     box-shadow: 0 0 2px #f6ff00b3, 0 0 2px #f6ff00b3, 0 0 2px#f6ff00b3, 0 0 16px #f6ff00b3;
-    accent-color: rgba(249, 249, 250, 0.32);
+    accent-color: rgba(247, 254, 230, 0.32);
     transition: all 1s linear;
 }
 
-.bar:hover {
+.progressBar:hover {
     cursor: pointer;
 }
+
+/* .volume {
+    position: relative;
+    padding: 10px 10px 10px 10px;
+    left: 40%;
+    width: 30px;
+    height: 30px;
+    background: url("images/dynamic.png") no-repeat center;
+    filter: brightness(10%);
+    box-shadow: 0 0 2px #f6ff00b3, 0 0 2px #f6ff00b3, 0 0 2px#f6ff00b3, 0 0 16px #f6ff00b3;
+    z-index: 10;
+    border-radius: 30%;
+}
+
+.volume:hover{
+    filter: brightness(50%);
+} */
 
 
 @keyframes light_title {

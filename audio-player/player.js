@@ -101,7 +101,16 @@ audio.addEventListener("loadeddata", () => {
 
 progressBar.addEventListener('mousedown', () => isUpdate = false);
 progressBar.addEventListener('mouseup', () => isUpdate = true);
-    
+
+
+
+function setWidthBar2 (event) {
+    const widthBoxBar = this.clientWidth;
+    const mouseClick = event.touches[0].pageX - event.touches[0].target.offsetLeft; 
+    audio.currentTime = (mouseClick / widthBoxBar) * audio.duration;
+}
+barBox.addEventListener("touchmove", setWidthBar2);
+barBox.addEventListener("touchstart", setWidthBar2);
 
 
 
