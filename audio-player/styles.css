@@ -331,6 +331,8 @@ a:hover {
 }
 
 .bar {
+    display: flex;
+    align-items: center;
     width: 80%;
     height: 7px;
     background-color: transparent;
@@ -340,11 +342,15 @@ a:hover {
 }
 
 .progressBar {
-    width: 0%;
-    background-color: rgba(219, 219, 219, 0.945);
     height: 7px;
     border-radius: 8px;
     box-shadow: 0 0 2px #f6ff00b3, 0 0 2px #f6ff00b3, 0 0 2px#f6ff00b3, 0 0 16px #f6ff00b3;
+    accent-color: rgba(249, 249, 250, 0.32);
+    transition: all 1s linear;
+}
+
+.bar:hover {
+    cursor: pointer;
 }
 
 

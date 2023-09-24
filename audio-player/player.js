@@ -7,7 +7,7 @@ const titleCurrent = document.querySelector(".title");
 const picCurrent = document.querySelector(".picture_for_music");
 const folderPic = ["images/Josef_Salvat.png", "images/Blank.jpg", "images/Telepath.jpeg", "images/Little_Talks.jpg", "images/HeyBrother.jpg"];
 const authorCurrent = document.querySelector(".author");
-const titles = ["The Drum", "Lost In the Moment", "Telepath", "Little Talk", "Hey Brother"];
+const titles = ["The Drum", "Lost In the Moment", "Telepath", "Little Talks", "Hey Brother"];
 const authors = ["Josef Salvat", "Blanks", "Conan Gray", "Of Monsters and Men", "Avicii"];
 const folderPaths = ["audio/Josef_Salvat_The_Drum.mp3", "audio/Blanks - Lost In The Moment.mp3", "audio/Conan Gray - Telepath.mp3", "audio/Of Monsters and Men - Little Talk.mp3", "audio/Avicii - Hey Brother.mp3"];
 let currentSong = 0;
@@ -17,6 +17,7 @@ const progressBar = document.querySelector(".progressBar");
 const barBox = document.querySelector(".bar");
 const currentT = document.querySelector(".currentTimeSong");
 const durationT = document.querySelector(".durationSong");
+let isUpdate = true;
 
 function playAudio() {
     if (audio.paused) {
@@ -66,11 +67,11 @@ audio.onended = function() {
 
 function widthProgressBar (event) {
     const currentTime = event.target.currentTime;
-    const duration = event.target.duration;
-    let widthForBar = (currentTime / duration) * 100;
+    let widthForBar = Math.round(audio.duration);
     progressBar.style.width = `${widthForBar}%`;
     let currentMin = Math.floor(currentTime / 60);
     let currentSec = Math.floor(currentTime % 60);
+    if (isUpdate) {progressBar.value = currentTime};
     if (currentSec < 10) {
         currentT.textContent = `${currentMin}:0${currentSec}`} else {
     currentT.textContent = `${currentMin}:${currentSec}`};
@@ -92,7 +93,15 @@ barBox.addEventListener("click", setWidthBar);
 audio.addEventListener("loadeddata", () => {
     let minutesD = Math.floor(audio.duration / 60);
     let secondsD = Math.floor(audio.duration % 60);
+    progressBar.max = Math.round(audio.duration);
+    let widthForBar = Math.round(audio.duration);
+    progressBar.style.width = `${widthForBar}%`;
     durationT.textContent = `${minutesD}:${secondsD}`});
+
+
+progressBar.addEventListener('mousedown', () => isUpdate = false);
+progressBar.addEventListener('mouseup', () => isUpdate = true);
+    
 
 
 
