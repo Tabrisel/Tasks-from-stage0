@@ -88,7 +88,6 @@ header{
 
 input {
     box-sizing: border-box;
-    margin-right: 1vh;
     width: 100%;
     border-radius: 10px;
     background: #ffffff;
@@ -96,8 +95,10 @@ input {
     border: none;
     font-family: Gothic;
     font-size: small;
-    color: #3c130e;
+    color: #862518;
     text-align: left;
+    margin-left: 1vh;
+    margin-right: 1vh;
 }
  
 .inputSearch::-webkit-search-cancel-button {
@@ -120,7 +121,7 @@ input {
     margin-right: 1%;
     box-sizing: border-box;
     background-color: aliceblue;
-    width: 20%;
+    width: 30%;
     height: 80%;
     border-radius: 5px;
     display: flex;
@@ -177,6 +178,7 @@ img {
 
 img:hover {
     transform: scale(105%);
+    cursor: pointer;
 }
 
 .error {
@@ -200,7 +202,7 @@ img:hover {
     font-family: Gothic;
     font-size: small;
     color: #862518;
-    text-align: center;
+    text-align: left;
 }
 
 h1 {
@@ -266,6 +268,7 @@ footer {
     
     a {
         margin-right: 10px;
+        margin-left: 10px;
         text-decoration: none;
         color: #C0392B;
     }
@@ -297,15 +300,14 @@ footer {
     }
     
     .github {
-        padding-left: 1%;
-        padding-right: 1%;
+
         display: flex;
         background-color: #8625187d;
         align-items: center;
         justify-content: space-between;
         font-size: 20px;
-        width: 11%;
         height: 100%;
+        width: 140px;
     }
     
     a:hover {
@@ -322,4 +324,50 @@ footer {
         align-items: center;
         justify-content: center;
         border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    }
+
+    @media only screen and (max-width: 1400px) {   
+        .box_search{
+            width: 30%;
+        }
+    }
+
+    @media only screen and (max-width: 1140px) {   
+        .box_search{
+            width: 40%;
+        }
+    }
+
+    @media only screen and (max-width: 950px) {   
+        .box_search{
+            width: 50%;
+        }
+    }
+
+    @media only screen and (max-width: 700px) {   
+        .box_search{
+            width: 60%;
+        }
+        header {
+            justify-content: space-between;
+            gap: 20px;
+        }
+    }
+
+    @media only screen and (max-width: 520px) {
+        h1 {
+            display: none
+        }
+        .box_search{
+            width: 90%;
+        }
+
+        header {
+            justify-content: space-between;
+            gap: none;
+        }
+
+        .unsplashAPI {
+            width: 30px;
+        }
     }
