@@ -3,7 +3,7 @@ const clientKey2 = `pqNqE1SWigMPrL3AiilXA6sMyByxRnzrskb94BIOV5M`;
 const box = document.querySelector(".imagesBox");
 const error = document.querySelector(".error");
 const array = [];
-let link = `https://api.unsplash.com/photos/random?client_id=${clientKey}&count=30&query=gray`;
+let link = `https://api.unsplash.com/photos/random?client_id=${clientKey}&count=30&query=autumn&orientation=squarish`;
 
 const getPhoto = async () => {
 
