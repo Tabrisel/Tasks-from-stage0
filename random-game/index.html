@@ -3,9 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Wizard Kitty</title>
+    <link rel="stylesheet" href="myStyles.css">
 </head>
 <body>
-    <p>Test!!!</p>
+    <div id="board_game">
+            <div class="blackBox">
+                <div class="modalWindow">
+                    <div class="questionSound">How about music?</div>
+                        <div class="answersSound">
+                            <button id="yesSound">Yep</button>
+                            <button id="noSound">No</button>
+                        </div>
+                </div>
+            </div>
+                <button id="sound_button"></button>
+                <canvas id="canvasHero"></canvas>
+    </div>
+    <script src="mechanics.js"></script>
 </body>
 </html>
