@@ -45,10 +45,85 @@ audio.onended = function() {
 }
 
 
+//*background *//
+const canvasBackground = document.getElementById("parallax");
+const ctx2 = canvasBackground.getContext("2d");
+const back_WIDTH = canvasBackground.width = 900;
+const back_HEIGHT = canvasBackground.height = 600;
+
+let speedForGame = 0.5;
+
+const back_layer1 = new Image();
+back_layer1.src = "scene/stage0/layer_1.png";
+const back_layer2 = new Image();
+back_layer2.src = "scene/stage0/layer_2.png";
+const back_layer3 = new Image();
+back_layer3.src = "scene/stage0/layer_3.png";
+const back_layer4 = new Image();
+back_layer4.src = "scene/stage0/layer_4.png";
+const back_layer5 = new Image();
+back_layer5.src = "scene/stage0/layer_5.png";
+const back_layer6 = new Image();
+back_layer6.src = "scene/stage0/layer-6.png";
+
+class backgroundParallax {
+    constructor(img, speedValue) {
+        this.x = 0;
+        this.y = 0;
+        this.width = 2400;
+        this.height = 700;
+        this.x2 = this.width;
+        this.image = img;
+        this.speedValue = speedValue;
+        this.speed = speedForGame * this.speedValue;
+    }
+    update(){
+        this.speed = speedForGame * this.speedValue;
+        if (this.x <= -this.width) {
+            this.x = this.width + this.x2 - this.speed;
+        }
+        if (this.x2 <= -this.width) {
+            this.x2 = this.width + this.x - this.speed;
+        }
+        this.x = Math.floor(this.x - this.speed);
+        this.x2 = Math.floor(this.x2 - this.speed);
+    }
+    draw() {
+        ctx2.drawImage(this.image, this.x, this.y, this.width, this.height);
+        ctx2.drawImage(this.image, this.x2, this.y, this.width, this.height);
+    }
+}
+
+const layer2 = new backgroundParallax(back_layer2, 1);
+const layer3 = new backgroundParallax(back_layer3, 1);
+const layer4 = new backgroundParallax(back_layer4, 3);
+const layer5 = new backgroundParallax(back_layer5, 3);
+
+
+
+function back_Animation() {
+    ctx2.clearRect(0, 0, back_WIDTH, back_HEIGHT);
+    layer2.update();
+    layer2.draw();
+    layer3.update();
+    layer3.draw();
+    layer4.update();
+    layer4.draw();
+    layer5.update();
+    layer5.draw();
+    requestAnimationFrame(back_Animation);
+};
+back_Animation();
+
+
+
+//* hero and animations
+
 const hero = document.getElementById("canvasHero");
 const ctx = hero.getContext("2d");
 const WIDTH_FOR_CANVAS = hero.width = 555;
 const HEIGHT_FOR_CANVAS = hero.height = 510;
+
 
 const heroImage = new Image();
 heroImage.src = "sprites/wizard_edit.png";
@@ -117,9 +192,9 @@ console.log(spriteAnimations);
 
 function animate() {
     ctx.clearRect(0, 0, WIDTH_FOR_CANVAS, HEIGHT_FOR_CANVAS);
-    let position = Math.floor(gameTime/retarder) % spriteAnimations["idle"].pos.length;
+    let position = Math.floor(gameTime/retarder) % spriteAnimations["walk"].pos.length;
     let imgX = spriteWidth * position;
-    let imgY = spriteAnimations["idle"].pos[position].y;
+    let imgY = spriteAnimations["walk"].pos[position].y;
 
     ctx.drawImage(heroImage, imgX, imgY, spriteWidth, spriteHeight, 0, 0, spriteWidth, spriteHeight);
 
