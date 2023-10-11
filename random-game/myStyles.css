@@ -1,0 +1,159 @@
+@font-face {
+    font-family: "VT323";
+    font-style: normal;
+    font-weight: 400;
+    src: url("fonts/VT323-Regular.ttf");
+}
+
+.blackBox {
+    position: absolute;
+    visibility: visible;
+    display: block;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #100f0ff7;
+    z-index: 11;
+    opacity: 1;
+    transition: all .3s;
+}
+
+
+.modal_OFF {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+.modalWindow {
+    transition: all .3s;
+    transform: scale(0.5);
+    font-size: 30px;
+    font-family: VT323;
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    visibility: visible;
+    opacity: 1;
+    background-color: #602363ea;
+    z-index: 13;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    gap: 20px;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+    color: rgb(203, 203, 68);
+}
+
+.answersSound{
+    width: 200px;
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+}
+
+#yesSound {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    font-family: VT323;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+    box-shadow: 4px 4px 35px -4px rgba(34, 60, 80, 0.2);
+}
+
+#yesSound:hover {
+    cursor: pointer;
+    scale: 1.1;
+    color: rgb(203, 203, 68);
+    text-shadow:
+    0 0 20px rgb(242, 253, 86),
+    0 0 30px rgb(242, 253, 86),
+    0 0 55px rgb(242, 253, 86),
+    0 0 80px rgb(242, 253, 86);
+}
+
+#noSound {
+    width: 50px;
+    height: 50px;
+    font-size: 25px;
+    font-family: VT323;
+    border-radius: 10px;
+    border: none;
+    background-color: transparent;
+}
+
+#noSound:hover {
+    cursor: pointer;
+    scale: 1.1;
+    color: rgb(203, 203, 68);
+    text-shadow:
+    0 0 20px rgb(242, 253, 86),
+    0 0 30px rgb(242, 253, 86),
+    0 0 55px rgb(242, 253, 86),
+    0 0 80px rgb(242, 253, 86);
+}
+
+.questionSound p{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+}
+
+#sound_button {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    background: no-repeat url("png/music_ON2.png");
+    border: none;
+}
+
+#sound_button:hover {
+    cursor: pointer;
+    scale: 1.1;
+}
+
+#sound_button.button_OFF {
+    background: no-repeat url("png/music_OFF2.png");
+}
+
+
+
+#board_game {
+    border: 3px solid black;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    right: 50%;
+    bottom: 50%;
+    position: absolute;
+    width: 900px;
+    height: 600px;
+}
+
+
+
+
+
+#canvasHero {
+    left: 5%;
+    bottom: 0;
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    z-index: 1;
+}
