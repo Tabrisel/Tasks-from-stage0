@@ -51,7 +51,7 @@ const WIDTH_FOR_CANVAS = hero.width = 555;
 const HEIGHT_FOR_CANVAS = hero.height = 510;
 
 const heroImage = new Image();
-heroImage.src = "sprites/Wizard_edit3.png";
+heroImage.src = "sprites/wizard_edit.png";
 const spriteWidth = 529;
 const spriteHeight = 534;
 let imgX = 0;
