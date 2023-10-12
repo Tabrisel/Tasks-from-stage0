@@ -30,7 +30,7 @@ noAnswer.addEventListener("change", e => {
 });
 
 startButton.addEventListener("click", () => {
-    blackBox.classList.add("modal_OFF");
+    blackBox.classList.add("modal_OFF2");
     modalQuestion.classList.add("modal_OFF");
     audio.play();
     if (yesAnswer.checked)
