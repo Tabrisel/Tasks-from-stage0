@@ -33,6 +33,10 @@ startButton.addEventListener("click", () => {
     blackBox.classList.add("modal_OFF");
     modalQuestion.classList.add("modal_OFF");
     audio.play();
+    if (yesAnswer.checked)
+    {audio.muted = false}
+    else {audio.muted = true;
+        soundButton.classList.add("button_OFF");}
 })
 
 function Mute() {

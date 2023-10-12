@@ -36,7 +36,7 @@
     height: 400px;
     visibility: visible;
     opacity: 1;
-    background-color: #602363ea;
+    background: linear-gradient(#2a082cea,#511e543c);
     z-index: 13;
     display: flex;
     flex-direction: column;
