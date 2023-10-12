@@ -8,20 +8,46 @@
     <link rel="icon" href="favicon/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div id="board_game">
-            <div class="blackBox">
-                <div class="modalWindow">
-                    <div class="questionSound">How about music?</div>
-                        <div class="answersSound">
-                            <button id="yesSound">Yep</button>
-                            <button id="noSound">No</button>
+    <main>
+        <div id="board_game">
+                <div class="blackBox">
+                    <div class="modalWindow">
+                        <div class="startGame">
+                            <button id="startGame">Start game</button>
                         </div>
+
+                        <div class="questionSound">How about music?
+                            <div class="answersSound">
+                                <div class="yes">
+                                    <input id="yesSound" name="music" type="radio">
+                                    <label class="radioLabel" for="yesSound">Yes</label>
+                                </div>
+                                <div class="no"><input id="noSound" name="music" type="radio" checked>
+                                    <label class="radioLabel" for="noSound">No</label>
+                                </div>
+
+                        </div>
+                            </div>
+                            <div class="results">
+                                <button id="last_games">Last games</button>
+                            </div>
+                    </div>
                 </div>
+                    <canvas id="parallax"></canvas>
+                    <button id="sound_button"></button>
+                    <canvas id="canvasHero"></canvas>
+        </div>
+    </main>
+    <footer>
+        <div class="footerBlock">
+            <div class="github">
+            <a class="user" href="https://github.com/tabrisel" target="_blank"><img src="icons/github_mark.svg" center><div class="name">Tabrisel</div></a>
             </div>
-                <canvas id="parallax"></canvas>
-                <button id="sound_button"></button>
-                <canvas id="canvasHero"></canvas>
-    </div>
+            <div class="year">
+                <p>2023</p>
+            </div>
+            <a class="RSS" href="https://rs.school/js-stage0/" target="_blank"></a>
+    </footer>
     <script src="mechanics.js"></script>
 </body>
 </html>

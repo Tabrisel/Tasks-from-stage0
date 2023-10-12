@@ -1,5 +1,8 @@
+// sound and music, menu
+
 const folderPaths = ["soundtrack/LightAmbience2.wav", "soundtrack/Angles_Oak_Studios.wav"];
 let currentSong = 0;
+const startButton = document.getElementById("startGame");
 const soundButton = document.getElementById("sound_button");
 const blackBox = document.querySelector(".blackBox");
 const modalQuestion = document.querySelector(".modalWindow");
@@ -15,17 +18,26 @@ soundButton.addEventListener("click", () => {
     soundButton.classList.toggle("button_OFF");
 })
 
-yesAnswer.addEventListener("click", () => {
-    audio.play();
+yesAnswer.addEventListener("change", () => {
+    audio.muted = false;
+    soundButton.classList.remove("button_OFF");
+});
+noAnswer.addEventListener("change", e => {
+    if (e.target.checked) {
+    audio.muted = true;
+    soundButton.classList.add("button_OFF");
+    }
+});
+
+startButton.addEventListener("click", () => {
     blackBox.classList.add("modal_OFF");
     modalQuestion.classList.add("modal_OFF");
-});
-noAnswer.addEventListener("click", () => {
     audio.play();
-    Mute2();
-    blackBox.classList.add("modal_OFF");
-    modalQuestion.classList.add("modal_OFF");
-});
+    if (yesAnswer.checked)
+    {audio.muted = false}
+    else {audio.muted = true;
+        soundButton.classList.add("button_OFF");}
+})
 
 function Mute() {
     audio.muted = audio.muted == false ? true : false;
@@ -46,6 +58,9 @@ audio.onended = function() {
 
 
 //*background *//
+
+window.addEventListener("load", function() {
+  
 const canvasBackground = document.getElementById("parallax");
 const ctx2 = canvasBackground.getContext("2d");
 const back_WIDTH = canvasBackground.width = 900;
@@ -53,18 +68,18 @@ const back_HEIGHT = canvasBackground.height = 600;
 
 let speedForGame = 0.5;
 
-const back_layer1 = new Image();
-back_layer1.src = "scene/stage0/layer_1.png";
-const back_layer2 = new Image();
-back_layer2.src = "scene/stage0/layer_2.png";
-const back_layer3 = new Image();
-back_layer3.src = "scene/stage0/layer_3.png";
-const back_layer4 = new Image();
-back_layer4.src = "scene/stage0/layer_4.png";
-const back_layer5 = new Image();
-back_layer5.src = "scene/stage0/layer_5.png";
-const back_layer6 = new Image();
-back_layer6.src = "scene/stage0/layer-6.png";
+const back_sheet1 = new Image();
+back_sheet1.src = "scene/stage0/layer_1.png";
+const back_sheet2 = new Image();
+back_sheet2.src = "scene/stage0/layer_2.png";
+const back_sheet3 = new Image();
+back_sheet3.src = "scene/stage0/layer_3.png";
+const back_sheet4 = new Image();
+back_sheet4.src = "scene/stage0/layer_4.png";
+const back_sheet5 = new Image();
+back_sheet5.src = "scene/stage0/layer_5.png";
+const back_sheet6 = new Image();
+back_sheet6.src = "scene/stage0/layer_6.png";
 
 class backgroundParallax {
     constructor(img, speedValue) {
@@ -77,7 +92,7 @@ class backgroundParallax {
         this.speedValue = speedValue;
         this.speed = speedForGame * this.speedValue;
     }
-    update(){
+    renew(){
         this.speed = speedForGame * this.speedValue;
         if (this.x <= -this.width) {
             this.x = this.width + this.x2 - this.speed;
@@ -88,47 +103,55 @@ class backgroundParallax {
         this.x = Math.floor(this.x - this.speed);
         this.x2 = Math.floor(this.x2 - this.speed);
     }
-    draw() {
+    create() {
         ctx2.drawImage(this.image, this.x, this.y, this.width, this.height);
         ctx2.drawImage(this.image, this.x2, this.y, this.width, this.height);
     }
 }
 
-const layer2 = new backgroundParallax(back_layer2, 1);
-const layer3 = new backgroundParallax(back_layer3, 1);
-const layer4 = new backgroundParallax(back_layer4, 3);
-const layer5 = new backgroundParallax(back_layer5, 3);
+const sheet2 = new backgroundParallax(back_sheet2, 0.3);
+const sheet3 = new backgroundParallax(back_sheet3, 1.5);
+const sheet4 = new backgroundParallax(back_sheet4, 3);
+const sheet5 = new backgroundParallax(back_sheet5, 3);
+const sheet6 = new backgroundParallax(back_sheet6, 3);
 
 
 
 function back_Animation() {
     ctx2.clearRect(0, 0, back_WIDTH, back_HEIGHT);
-    layer2.update();
-    layer2.draw();
-    layer3.update();
-    layer3.draw();
-    layer4.update();
-    layer4.draw();
-    layer5.update();
-    layer5.draw();
+    sheet2.renew();
+    sheet2.create();
+    sheet3.renew();
+    sheet3.create();
+    sheet4.renew();
+    sheet4.create();
+    sheet5.renew();
+    sheet5.create();
+    sheet6.renew();
+    sheet6.create();
     requestAnimationFrame(back_Animation);
 };
 back_Animation();
 
-
+})
 
 //* hero and animations
 
 const hero = document.getElementById("canvasHero");
 const ctx = hero.getContext("2d");
-const WIDTH_FOR_CANVAS = hero.width = 555;
-const HEIGHT_FOR_CANVAS = hero.height = 510;
 
+
+
+const WIDTH_FOR_CANVAS = hero.width = 555;
+const HEIGHT_FOR_CANVAS = hero.height = 612;
+
+
+// animations
 
 const heroImage = new Image();
-heroImage.src = "sprites/wizard_edit.png";
+heroImage.src = "sprites/wizard_edit_ready.png";
 const spriteWidth = 529;
-const spriteHeight = 534;
+const spriteHeight = 602;
 let imgX = 0;
 let imgY = 1;
 let gameTime = 0;
@@ -188,7 +211,7 @@ animationList.forEach((animation, ind) => {
     }
     spriteAnimations[animation.name] = frames;
 });
-console.log(spriteAnimations);
+
 
 function animate() {
     ctx.clearRect(0, 0, WIDTH_FOR_CANVAS, HEIGHT_FOR_CANVAS);
@@ -203,3 +226,42 @@ function animate() {
     requestAnimationFrame(animate);
 };
 animate();
+
+
+//hero movements
+let main_keys = ["ArrowDown", "ArrowUp", "w", "ц", "s", "ы", "r", "к"];
+
+class whichKey {
+    constructor(){
+        this.allKeys = [ ];
+        window.addEventListener("keydown", e => {
+
+            if (main_keys.includes(e.key) && this.allKeys.indexOf(e.key) === -1) {
+                this.allKeys.push(e.key);
+            }
+            console.log(e.key, this.allKeys);
+            });
+
+            window.addEventListener("keyup", e => {
+
+                if (main_keys.includes(e.key)) {
+                    this.allKeys.splice(this.allKeys.indexOf(e.key), 1);
+                }
+                console.log(e.key, this.allKeys);
+                });
+    }
+}
+
+let keysKeeper = new whichKey();
+
+window.addEventListener("keydown", e => {
+    if ((e.key == main_keys[1]) || (e.key == main_keys[2]) || (e.key == main_keys[3])) {
+        hero.classList.add("active");
+    }
+})
+
+window.addEventListener("keyup", e => {
+    if ((e.key == main_keys[1]) || (e.key == main_keys[2]) || (e.key == main_keys[3])) {
+        hero.classList.remove("active");
+    }
+})
