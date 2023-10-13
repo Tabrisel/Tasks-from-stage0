@@ -139,7 +139,7 @@ function renew() {
     ball.y = ball.y + ball.posY;
     ctx.fillRect(ball.x, ball.y, ball.width, ball.height);
 
-    if (ball.y <= 0 || (ball.y + ball.height >= heightCanvas)) {
+    if (ball.y <= 0 || ((ball.y + ball.height) >= heightCanvas)) {
         ball.posY = -ball.posY;
     }
     
@@ -149,10 +149,17 @@ function renew() {
         if (ball.x <= gamer1.x + gamer1.width) {
             ball.posX = - ball.posX;
         }
+        if (ball.y <= gamer1.y + gamer1.height) {
+            ball.posY = - ball.posY;
+        }
     }
     else if(collisionIsHere(ball, gamer2)) {
-        if (ball.x + ball.width >= gamer2.x) {
+        if ((ball.x + ball.width) >= gamer2.x) {
             ball.posX = - ball.posX;
+        }
+
+        if (ball.y <= gamer2.y + gamer2.height) {
+            ball.posY = - ball.posY;
         }
     }
 
@@ -172,8 +179,11 @@ function renew() {
 
 
     //PC
-    let PC_speed = 0.01;
+    let PC_speed = 0.02;
+    if (ball.posX > 0) {
     gamer2.y += (ball.y - (gamer2.y + gamer2.height/2)) * PC_speed;
+    }
+
 }
 
 function stopOutBorder(value) {
@@ -222,9 +232,12 @@ function collisionIsHere(arg1, arg2) {
 }
 
 function gameOverChangeBall (val) {
+    min = Math.ceil(0);
+    max = Math.ceil(500);
+
     ball = {
         x: widthCanvas/2,
-        y: heightCanvas/2,
+        y: Math.floor(Math.random() * (max - min + 1)) + min,
         width: 10,
         height: 10,
         posX: val,
