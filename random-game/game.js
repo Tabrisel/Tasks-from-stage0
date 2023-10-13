@@ -58,6 +58,9 @@
 
 //* game mechanics*//
 
+let score_gamer1 = 0;
+let score_gamer2 = 0;
+
 let field;
 let widthCanvas = 899;
 let heightCanvas = 500;
@@ -65,14 +68,14 @@ let ctx;
 
 let widthPlayer = 10;
 let heightPlayer = 70;
-let speedPlayer = 0;
+let positionPlayer = 0;
 
 let gamer1 = {
     x : 20,
     y : heightCanvas/2,
     width : widthPlayer,
     height : heightPlayer,
-    speed : speedPlayer
+    position: positionPlayer
 }
 
 let gamer2 = {
@@ -80,7 +83,16 @@ let gamer2 = {
     y : heightCanvas/2,
     width : widthPlayer,
     height : heightPlayer,
-    speed : speedPlayer
+    position: positionPlayer
+}
+
+let ball = {
+    x: widthCanvas/2,
+    y: heightCanvas/2,
+    width: 10,
+    height: 10,
+    posX: 1,
+    posY: 2
 }
 
 //with loading:
@@ -106,32 +118,96 @@ function renew() {
     requestAnimationFrame(renew);
     ctx.clearRect(0, 0, field.width, field.height)
 
+
     ctx.fillStyle = "rgb(203, 203, 68)";
-    gamer1.y = gamer1.y + gamer1.speed;
+    // gamer1.y = gamer1.y + gamer1.position;
+    let futurePosition1 = gamer1.y + gamer1.position;
+    if (!stopOutBorder(futurePosition1)) {
+        gamer1.y = futurePosition1;
+    }
     ctx.fillRect(gamer1.x, gamer1.y, gamer1.width, gamer1.height);
 
-    ctx.fillStyle = "rgb(203, 203, 68)";
-    gamer2.y = gamer2.y + gamer2.speed;
+
+    // gamer2.y = gamer2.y + gamer2.position;
+    let futurePosition2 = gamer2.y + gamer2.position;
+    if (!stopOutBorder(futurePosition2)) {
+        gamer2.y = futurePosition2;
+    }
     ctx.fillRect(gamer2.x, gamer2.y, gamer2.width, gamer2.height);
+
+    ctx.fillStyle = "white";
+    ball.x = ball.x + ball.posX;
+    ball.y = ball.y + ball.posY;
+    ctx.fillRect(ball.x, ball.y, ball.width, ball.height);
+
+    if (ball.y <= 0 || (ball.y + ball.height >= heightCanvas)) {
+        ball.posY = -ball.posY;
+    }
+    
+
+
+    if(collisionIsHere(ball, gamer1)) {
+        if (ball.x <= gamer1.x + gamer1.width) {
+            ball.posX = - ball.posX;
+        }
+    }
+    else if(collisionIsHere(ball, gamer2)) {
+        if (ball.x + ball.width >= gamer2.x) {
+            ball.posX = - ball.posX;
+        }
+    }
+
+    //when score go up
+    if (ball.x < 0) {
+        score_gamer2++;
+        gameOverChangeBall(1);
+    }
+    else if (ball.x + ball.width > widthCanvas) {
+        score_gamer1++;
+        gameOverChangeBall(-1);
+    }
+
+    ctx.font = "30px sans-serif";
+    ctx.fillText(score_gamer1, widthCanvas/4, 50);
+    ctx.fillText(score_gamer2, widthCanvas -  widthCanvas/4, 50);
+
 }
 
-function stopOutBorder(smth) {
-    return (smth < 0 || smth + heightPlayer > heightCanvas);
+function stopOutBorder(value) {
+    return (value < 0 || value + heightPlayer > heightCanvas);
 }
 
 
 function changePosition(event) {
     if (event.code == "KeyW") {
-        gamer1.speed = -3;
+        gamer1.position = -3;
     }
     else if (event.code == "KeyS") {
-        gamer1.speed = 3;
+        gamer1.position = 3;
     }
 
     if (event.code == "ArrowUp") {
-        gamer2.speed = -3;
+        gamer2.position = -3;
     }
     else if (event.code == "ArrowDown") {
-        gamer2.speed = 3;
+        gamer2.position = 3;
+    }
+}
+
+function collisionIsHere(arg1, arg2) {
+    return arg1.x < arg2.x + arg2.width &&
+            arg1.x + arg1.width > arg2.x &&
+            arg1.y < arg2.y + arg2.height &&
+            arg1.y + arg1.height > arg2.y;
+}
+
+function gameOverChangeBall (val) {
+    ball = {
+        x: widthCanvas/2,
+        y: heightCanvas/2,
+        width: 10,
+        height: 10,
+        posX: val,
+        posY: 1
     }
 }
