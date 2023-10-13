@@ -105,14 +105,13 @@ window.addEventListener("load", function() {
 
     //draw gamer1 and gamer2 infinite:
     this.requestAnimationFrame(renew);
-    
 
-    this.document.addEventListener("keyup", changePosition)
-    
-
-    
 
 })
+
+    this.document.addEventListener("keydown", changePosition);
+    this.document.addEventListener("keyup", changePosition2)
+
 
 function renew() {
     requestAnimationFrame(renew);
@@ -171,6 +170,10 @@ function renew() {
     ctx.fillText(score_gamer1, widthCanvas/4, 50);
     ctx.fillText(score_gamer2, widthCanvas -  widthCanvas/4, 50);
 
+
+    //PC
+    let PC_speed = 0.01;
+    gamer2.y += (ball.y - (gamer2.y + gamer2.height/2)) * PC_speed;
 }
 
 function stopOutBorder(value) {
@@ -180,17 +183,34 @@ function stopOutBorder(value) {
 
 function changePosition(event) {
     if (event.code == "KeyW") {
-        gamer1.position = -3;
+        gamer1.position = -2;
     }
     else if (event.code == "KeyS") {
-        gamer1.position = 3;
+        gamer1.position = 2;
     }
 
     if (event.code == "ArrowUp") {
-        gamer2.position = -3;
+        gamer2.position = -2;
     }
     else if (event.code == "ArrowDown") {
-        gamer2.position = 3;
+        gamer2.position = 2;
+    }
+}
+
+
+function changePosition2(event) {
+    if (event.code == "KeyW") {
+        gamer1.position = 0;
+    }
+    else if (event.code == "KeyS") {
+        gamer1.position = 0;
+    }
+
+    if (event.code == "ArrowUp") {
+        gamer2.position = 0;
+    }
+    else if (event.code == "ArrowDown") {
+        gamer2.position = 0;
     }
 }
 
@@ -211,3 +231,5 @@ function gameOverChangeBall (val) {
         posY: 1
     }
 }
+
+
