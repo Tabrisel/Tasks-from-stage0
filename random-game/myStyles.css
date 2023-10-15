@@ -419,6 +419,33 @@ body {
         }
 }
 
+#okayButton {
+    position: absolute;
+    z-index: -30;
+    width: 200px;
+    height: 80px;
+    font-size: 50px;
+    font-family: VT323;
+    color: white;
+    background: rgb(21, 21, 21);
+    border-radius: 10px;
+    border: none;
+    bottom: 90px;
+    left: 40%;
+    opacity: 0;
+}
+
+#okayButton:hover {
+    cursor: pointer;
+    scale: 1;
+    border: 2px solid rgb(203, 203, 68);
+}
+
+#okayButton.modal_ON {
+    opacity: 1;
+    z-index: 30;
+}
+
 
 #board_game {
     transform: translate(-50%, -50%);
@@ -429,7 +456,7 @@ body {
     position: absolute;
     width: 899.3px;
     height: 500px;
-    border: 2px solid black;
+    border: 4px solid rgb(225, 255, 0);
     background: rgb(5, 4, 37);
 }
 
