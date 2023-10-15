@@ -20,6 +20,11 @@ for (let i = 0; i < lengthForStorage; i++) {
     finalTime = valueParsed["time"];
     finalResult = valueParsed["result"];
 
+    if ((finalNumberGame === undefined) || (finalScorePlayer === undefined) || (finalScorePC === undefined) || (finalTime === undefined) || (finalResult === undefined)) {
+        localStorage.clear();
+        location.reload();
+    }
+
     values = `${finalResult}, score ${finalScorePlayer}:${finalScorePC}, time: ${finalTime}`;
 
     let div = document.createElement('div');
@@ -331,7 +336,7 @@ function renew() {
     let lose2= "You lose! Maybe try again?"
 
 
-    if (score_gamer1 == 2) {
+    if (score_gamer1 == 5) {
         ctx.font = "70px VT323";
         ctx.fillText(win, widthCanvas/8, heightCanvas/2 - 80);
         ctx.fillText(win2, widthCanvas/2.5, heightCanvas/2);
@@ -349,7 +354,7 @@ function renew() {
 
 
 
-    if (score_gamer2 == 1) {
+    if (score_gamer2 == 5) {
         ctx.font = "70px VT323";
         ctx.fillText(lose, widthCanvas/8, heightCanvas/2 - 80);
         ctx.fillText(lose2, widthCanvas/8, heightCanvas/2);
@@ -447,6 +452,5 @@ okayButton.addEventListener("click", () => {
     location.reload();
     }
 )
-
 
 
