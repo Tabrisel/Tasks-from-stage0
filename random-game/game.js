@@ -1,3 +1,39 @@
+// add last games
+let numb = 0;
+let data_values;
+let resultOfGame;
+let value;
+let valueParsed;
+let lengthForStorage = localStorage.length;
+let values;
+const lastGamesNumber = document.querySelector(".numberOfGame");
+const lastGamesValues = document.querySelector(".valueGame");
+
+if (lengthForStorage > 0) {
+for (let i = 0; i < lengthForStorage; i++) {
+    value = localStorage.getItem(localStorage.key(i));
+    valueParsed = JSON.parse(value);
+
+    finalNumberGame = valueParsed["number_game"];
+    finalScorePlayer = valueParsed["score_player"];
+    finalScorePC = valueParsed["score_PC"];
+    finalTime = valueParsed["time"];
+    finalResult = valueParsed["result"];
+
+    values = `${finalResult}, score ${finalScorePlayer}:${finalScorePC}, time: ${finalTime}`;
+
+    let div = document.createElement('div');
+    let div2 = document.createElement('div');
+    div.innerHTML = finalNumberGame;
+    div2.innerHTML = values;
+    lastGamesNumber.append(div);
+    lastGamesValues.append(div2);
+    }
+}
+
+
+
+
 // /* menu */
 
 const folderPaths = ["soundtrack/What_Is_Love_8_bit_Remx.wav", "soundtrack/Neva_Gonna_Give_You_Up_8_bit.wav"];
@@ -13,12 +49,14 @@ const resultsButton = document.getElementById("last_games");
 const crossButton = document.querySelector(".cross");
 const okayButton = document.getElementById("okayButton");
 
+
 let time = 0;
 let minutesD;
 let secondsD;
 let result_time;
 let timeLocal;
 let checkTime;
+
 
 
 
@@ -302,6 +340,7 @@ function renew() {
         ball.height = 0;
         ball.posY = 0;
         ball.posX = 0;
+        resultOfGame = "win";
         okayButton.classList.add("modal_ON");
         
     }
@@ -319,6 +358,7 @@ function renew() {
         ball.height = 0;
         ball.posY = 0;
         ball.posX = 0;
+        resultOfGame = "lose";
 
         okayButton.classList.add("modal_ON");
     }
@@ -381,24 +421,32 @@ function gameOverChangeBall (val) {
         posX: val,
         posY: Math.floor(Math.random() * (3 - 1 + 1)) + 1,
     }
-    console.log(ball.y);
+
 }
 
 okayButton.addEventListener("click", () => {
     timeLocal = result_time;
-    console.log(timeLocal);
+
+
+
+
+    //local storage
+
+
+    if (lengthForStorage > 0) {numb = lengthForStorage};
+        numb = numb + 1;
+        data_values = {
+            "number_game": numb,
+            "score_player": score_gamer1,
+            "score_PC": score_gamer2,
+            "time": timeLocal,
+            "result": resultOfGame,
+        }
+    
+    localStorage.setItem(`${numb}`, JSON.stringify(data_values));
     location.reload();
     }
 )
-
-//local storage
-    let numb_game = 1;
-const data_values = {
-    "number_game": numb_game,
-    "score_player": score_gamer1,
-    "score_PC": score_gamer2,
-
-}
 
 
 
