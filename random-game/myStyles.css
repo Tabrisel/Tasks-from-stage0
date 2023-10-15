@@ -1,6 +1,7 @@
 body {
     background: linear-gradient(black, rgb(8, 8, 69));
     height: 100vh;
+    overflow: hidden;
 }
 
 /** modalWindow **/
@@ -564,3 +565,20 @@ footer {
         opacity: 80%;
         scale: 1.1;
     }
+
+    @media screen and (max-width: 1000px){
+        #board_game{
+            width: 700px;
+        }
+        .modalWindow {
+            width: 700px;
+        }
+        .blackBox {
+            width: 700px;
+        }
+
+        #field {
+            width: 700px;
+            height: 100%;
+        }
+    } 
