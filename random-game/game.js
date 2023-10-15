@@ -1,7 +1,6 @@
 // /* menu */
 
-const folderPaths = ["soundtrack/What_Is_Love_8-bit_Remx.wav", "soundtrack/Neva_Gonna_Give_You_Up_8_bit.wav"];
-let currentSong = 0;
+const folderPaths = ["soundtrack/What_Is_Love_8_bit_Remx.wav", "soundtrack/Neva_Gonna_Give_You_Up_8_bit.wav"];
 const startButton = document.getElementById("startGame");
 const soundButton = document.getElementById("sound_button");
 const blackBox = document.querySelector(".blackBox");
@@ -12,10 +11,31 @@ const yesMode = document.getElementById("yesMode");
 const results = document.querySelector(".modalResults");
 const resultsButton = document.getElementById("last_games");
 const crossButton = document.querySelector(".cross");
-console.log(crossButton);
+const okayButton = document.getElementById("okayButton");
+
+let time = 0;
+let minutesD;
+let secondsD;
+let result_time;
+let timeLocal;
+let checkTime;
+
+
+
+
+function randomNumb(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+
+let currentSong = randomNumb(0,1);
+
 
 let audio = new Audio;
-audio.src = "soundtrack/What_Is_Love_8-bit_Remx.wav";
+audio.src = `${folderPaths[currentSong]}`;
 let volume = .5;
 audio.volume = volume;
 let gameIsPlay = false;
@@ -56,7 +76,12 @@ startButton.addEventListener("click", () => {
     {audio.muted = false}
     else {audio.muted = true;
         soundButton.classList.add("button_OFF");}
+
+    checkTime = setInterval(function(){    
+    time++
+    }, 1000); 
 })
+
 
 resultsButton.addEventListener("click", () =>{
     results.classList.add("modal_ON");
@@ -87,6 +112,7 @@ audio.onended = function() {
 
 let score_gamer1 = 0;
 let score_gamer2 = 0;
+
 
 let field;
 let widthCanvas = 899;
@@ -125,6 +151,7 @@ let ball = {
 if (gameIsPlay == false) {
     ball.posX = 0;
     ball.posY = 0;
+
 } 
 
 
@@ -142,8 +169,6 @@ window.addEventListener("load", function() {
 
     //draw gamer1 and gamer2 infinite:
     this.requestAnimationFrame(renew);
-
-
 })
 
     this.document.addEventListener("keydown", changePosition);
@@ -152,7 +177,18 @@ window.addEventListener("load", function() {
 
 function renew() {
     requestAnimationFrame(renew);
-    ctx.clearRect(0, 0, field.width, field.height)
+    ctx.clearRect(0, 0, field.width, field.height);
+    minutesD = Math.floor(time / 60);
+    secondsD = Math.floor(time % 60);
+    if (secondsD < 10) {
+        result_time = `${minutesD}:0${secondsD}`} else {
+            result_time = `${minutesD}:${secondsD}`};
+
+
+            if ((gameIsPlay == false) && (time>0)) {
+                clearInterval(checkTime);
+            }
+    
 
 
 
@@ -231,10 +267,16 @@ function renew() {
     ctx.fillText(score_gamer2, widthCanvas -  widthCanvas/4, 50);
 
 
+    //time
+    ctx.font = "40px VT323";
+
+        ctx.fillText(result_time, 100, 490)
+
+
     //PC
 
     if (!yesMode.checked) {
-    PC_speed = 0.04;
+    PC_speed = 0.035;
     }
     if (yesMode.checked) {
     PC_speed = 0.005;
@@ -242,7 +284,7 @@ function renew() {
     if (ball.posX > 0) {
     gamer2.y += (ball.y - (gamer2.y + gamer2.height/2) - Math.floor(Math.random() * 10)) * PC_speed;
     }
-    console.log(PC_speed);
+   
 
     let win = "What is love?! Nevermind.";
     let win2 ="YOU WIN!";
@@ -251,26 +293,34 @@ function renew() {
     let lose2= "You lose! Maybe try again?"
 
 
-    if (score_gamer1 == 5) {
+    if (score_gamer1 == 2) {
         ctx.font = "70px VT323";
-        ctx.fillText(win, widthCanvas/8, heightCanvas/2 - 30);
-        ctx.fillText(win2, widthCanvas/2.5, heightCanvas/2 + 90);
+        ctx.fillText(win, widthCanvas/8, heightCanvas/2 - 80);
+        ctx.fillText(win2, widthCanvas/2.5, heightCanvas/2);
         gameIsPlay = false;
         ball.width = 0;
         ball.height = 0;
         ball.posY = 0;
         ball.posX = 0;
+        okayButton.classList.add("modal_ON");
+        
     }
 
-    if (score_gamer2 == 5) {
+//    if ((gameIsPlay == false) && (time>0)) {console.log(timeLocal)}
+
+
+
+    if (score_gamer2 == 1) {
         ctx.font = "70px VT323";
-        ctx.fillText(lose, widthCanvas/8, heightCanvas/2 - 30);
-        ctx.fillText(lose2, widthCanvas/8, heightCanvas/2 + 90);
+        ctx.fillText(lose, widthCanvas/8, heightCanvas/2 - 80);
+        ctx.fillText(lose2, widthCanvas/8, heightCanvas/2);
         gameIsPlay = false;
         ball.width = 0;
         ball.height = 0;
         ball.posY = 0;
         ball.posX = 0;
+
+        okayButton.classList.add("modal_ON");
     }
 }
 
@@ -334,6 +384,21 @@ function gameOverChangeBall (val) {
     console.log(ball.y);
 }
 
+okayButton.addEventListener("click", () => {
+    timeLocal = result_time;
+    console.log(timeLocal);
+    location.reload();
+    }
+)
+
+//local storage
+    let numb_game = 1;
+const data_values = {
+    "number_game": numb_game,
+    "score_player": score_gamer1,
+    "score_PC": score_gamer2,
+
+}
 
 
 
